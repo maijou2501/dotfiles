@@ -19,6 +19,3 @@ endif
 se nobackup
 se noswapfile
 se noundofile
-
-" no automatic new line
-se tw=0

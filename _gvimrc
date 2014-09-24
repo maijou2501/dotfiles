@@ -21,3 +21,7 @@ augroup END
 if filereadable(g:save_window_file)
   execute 'source' g:save_window_file
 endif
+
+" no automatic new line
+" vim74/vimrc_example.vim, Need comment out line 71
+se tw=0
