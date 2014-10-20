@@ -19,6 +19,7 @@ endif
 se nobackup
 se noswapfile
 se noundofile
+nnoremap <ESC><ESC> :nohlsearch<CR>
 
 " open URI
 "http://d.hatena.ne.jp/shunsuk/20110508/1304865150
