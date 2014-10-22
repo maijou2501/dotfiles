@@ -19,6 +19,30 @@ endif
 se nobackup
 se noswapfile
 se noundofile
+nnoremap <ESC><ESC> :nohlsearch<CR>
 
-" no automatic new line
-se tw=0
+" open URI
+"http://d.hatena.ne.jp/shunsuk/20110508/1304865150
+function! HandleURI()
+  let s:uri = matchstr(getline("."), '[a-z]*:\/\/[^ >,;:]*')
+  echo s:uri
+  if s:uri != ""
+    exec "!start cmd /c chrome \"" . s:uri . "\""
+  else
+    let s:uri = matchstr(getline("."), '\\\\.*\\.*\.\a\{3,4}')
+    echo s:uri
+    if s:uri != ""
+      exec "!start cmd /c \"" . s:uri . "\""
+    else
+      let s:uri = matchstr(getline("."), '\a\:\\.*\.\a\{3,4}')
+      echo s:uri
+      if s:uri != ""
+        exec "!start cmd /c \"" . s:uri . "\""
+      else
+        echo "No URI found in line."
+      endif
+    endif
+  endif
+endfunction
+"map <Leader>w :call HandleURI()<CR>
+nnoremap gu :call HandleURI()<CR>

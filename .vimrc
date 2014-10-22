@@ -29,6 +29,7 @@ set ts=4 sw=4 sts=0
 set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
 nmap df :vertical diffsplit 
 nmap bb :ls<CR>:buf 
+nnoremap <ESC><ESC> :nohlsearch<CR>
 colorscheme ron
 "colorscheme koehler
 "colorscheme elflord
