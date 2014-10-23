@@ -1,5 +1,6 @@
 se nu
 se list
+se ts=4 sw=4 sts=0
 se lcs=tab:>-,trail:~,extends:<,eol:$,nbsp:%
 se clipboard+=unnamed
 se cursorline

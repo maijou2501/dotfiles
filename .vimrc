@@ -17,16 +17,28 @@ set runtimepath=~/.vim,/var/lib/vim/addons,/usr/share/vim/vimfiles,/usr/share/vi
 set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
 " vim: set ft=vim :
 " set autoindent
-set clipboard=unnamedplus,autoselect
-set cursorline
-set hlsearch
-set incsearch
-set list
-set number
-set showmatch
-set wildmenu wildmode=list:full
-set ts=4 sw=4 sts=0
-set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
+se clipboard=unnamedplus,autoselect
+se cursorline
+se hlsearch
+se incsearch
+se list
+se number
+se showmatch
+se wildmenu wildmode=list:full
+se ts=4 sw=4 sts=0
+se lcs=tab:>-,trail:~,extends:>,precedes:<,eol:$,nbsp:%
+if has('syntax')
+  syntax enable
+  function! ActivateInvisibleIndicator()
+    highlight ZenkakuSpace cterm=underline ctermfg=darkgrey gui=underline guifg=#FF0000
+    match ZenkakuSpace /�@/
+  endfunction
+  augroup InvisibleIndicator
+    autocmd!
+    autocmd BufEnter * call ActivateInvisibleIndicator()
+  augroup END
+endif
+
 nmap df :vertical diffsplit 
 nmap bb :ls<CR>:buf 
 nnoremap <ESC><ESC> :nohlsearch<CR>
