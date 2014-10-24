@@ -4,11 +4,13 @@ se ts=4 sw=4 sts=0
 se lcs=tab:>-,trail:~,extends:<,eol:$,nbsp:%
 se clipboard+=unnamed
 se cursorline
+
+" 全角スペースをハイライト表示
 if has('syntax')
   syntax enable
   function! ActivateInvisibleIndicator()
     highlight ZenkakuSpace cterm=underline ctermfg=darkgrey gui=underline guifg=#FF0000
-    match ZenkakuSpace /�@/
+    match ZenkakuSpace /　/
   endfunction
   augroup InvisibleIndicator
     autocmd!
@@ -45,5 +47,4 @@ function! HandleURI()
     endif
   endif
 endfunction
-"map <Leader>w :call HandleURI()<CR>
 nnoremap gu :call HandleURI()<CR>
