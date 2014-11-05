@@ -29,17 +29,20 @@ se ts=4 sw=4 sts=0
 se lcs=tab:>-,trail:~,extends:>,precedes:<,eol:$,nbsp:%
 
 "全角スペースをハイライト表示
+function! ZenkakuSpace()
+    "highlight ZenkakuSpace cterm=reverse ctermfg=DarkMagenta gui=reverse guifg=DarkMagenta
+    highlight ZenkakuSpace cterm=underline ctermfg=DarkMagenta gui=underline guifg=DarkMagenta
+endfunction
+
 if has('syntax')
-  syntax enable
-  function! ActivateInvisibleIndicator()
-    highlight ZenkakuSpace cterm=underline ctermfg=darkgrey gui=underline guifg=#FF0000
-    match ZenkakuSpace /　/
-  endfunction
-  augroup InvisibleIndicator
-    autocmd!
-    autocmd BufEnter * call ActivateInvisibleIndicator()
-  augroup END
+    augroup ZenkakuSpace
+        autocmd!
+        autocmd ColorScheme       * call ZenkakuSpace()
+        autocmd VimEnter,WinEnter * match ZenkakuSpace /　/
+    augroup END
+    call ZenkakuSpace()
 endif
+
 nmap df :vertical diffsplit 
 nmap bb :ls<CR>:buf 
 nnoremap <ESC><ESC> :nohlsearch<CR>
