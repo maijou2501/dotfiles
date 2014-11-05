@@ -1,9 +1,14 @@
+" set
 se nu
 se list
 se ts=4 sw=4 sts=0
 se lcs=tab:>-,trail:~,extends:<,eol:$,nbsp:%
 se clipboard+=unnamed
 se cursorline
+se autochdir
+
+" map
+nnoremap <ESC><ESC> :nohlsearch<CR>
 
 " 全角スペースをハイライト表示
 if has('syntax')
@@ -22,7 +27,6 @@ endif
 se nobackup
 se noswapfile
 se noundofile
-nnoremap <ESC><ESC> :nohlsearch<CR>
 
 " open URI
 "http://d.hatena.ne.jp/shunsuk/20110508/1304865150
