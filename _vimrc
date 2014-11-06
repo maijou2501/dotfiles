@@ -8,20 +8,9 @@ se cursorline
 se autochdir
 
 " map
+nnoremap df :vertical diffsplit 
+nnoremap bb :ls<CR>:buf 
 nnoremap <ESC><ESC> :nohlsearch<CR>
-
-" 全角スペースをハイライト表示
-if has('syntax')
-  syntax enable
-  function! ActivateInvisibleIndicator()
-    highlight ZenkakuSpace cterm=underline ctermfg=darkgrey gui=underline guifg=#FF0000
-    match ZenkakuSpace /　/
-  endfunction
-  augroup InvisibleIndicator
-    autocmd!
-    autocmd BufEnter * call ActivateInvisibleIndicator()
-  augroup END
-endif
 
 " for share folder
 se nobackup
