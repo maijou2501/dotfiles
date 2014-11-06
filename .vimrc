@@ -17,6 +17,8 @@ set runtimepath=~/.vim,/var/lib/vim/addons,/usr/share/vim/vimfiles,/usr/share/vi
 set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
 " vim: set ft=vim :
 " set autoindent
+
+" ito setting
 se clipboard=unnamedplus,autoselect
 se cursorline
 se hlsearch
@@ -43,8 +45,8 @@ if has('syntax')
     call ZenkakuSpace()
 endif
 
-nmap df :vertical diffsplit 
-nmap bb :ls<CR>:buf 
+nnoremap df :vertical diffsplit 
+nnoremap bb :ls<CR>:buf 
 nnoremap <ESC><ESC> :nohlsearch<CR>
 colorscheme ron
 "colorscheme koehler
