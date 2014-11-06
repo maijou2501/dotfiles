@@ -43,8 +43,6 @@ nnoremap <ESC><ESC> :nohlsearch<CR>
 " OpenMPI, Intel Compiler
 au BufRead,BufNewFile *.cpp setlocal path+=/usr/include/c++,/opt/openmpi/include,/opt/intel/include,/opt/intel/composerxe/mkl/include,/opt/intel/composerxe/tbb/include,/opt/intel/composerxe/ipp/include
 au BufRead,BufNewFile *.c setlocal path+=/usr/include/,/opt/openmpi/include,/opt/intel/include,/opt/intel/composerxe/mkl/include,/opt/intel/composerxe/tbb/include
-" Markdown
-au BufNewFile,BufRead *.markdown,*.mdown,*.mkd,*.mkdn,README.md  setf ghmarkdown
 
 " 全角スペースをハイライト表示
 function! ZenkakuSpace()
@@ -66,7 +64,7 @@ function! HandleURI()
   let s:uri = matchstr(getline("."), '[a-z]*:\/\/[^ >,;:]*')
   echo s:uri
   if s:uri != ""
-    exec "!open \"" . s:uri . "\""
+    exec "!gnome-open \"" . s:uri . "\""
   else
     echo "No URI found in line."
   endif
