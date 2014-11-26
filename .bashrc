@@ -147,3 +147,7 @@ fi
 
 # mkdir $1 && cd $1
 function mkcd () { mkdir -p "$@" && eval cd "\"\$$#\""; }
+
+# vim
+alias vim="/usr/local/bin/vim"
+alias view="/usr/local/bin/view"
