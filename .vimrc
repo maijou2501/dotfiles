@@ -1,4 +1,4 @@
-"version 6.0
+version 6.0
 if &cp | set nocp | endif
 let s:cpo_save=&cpo
 set cpo&vim
@@ -100,6 +100,9 @@ NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'honza/vim-snippets'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'scrooloose/syntastic'
+NeoBundle 'ujihisa/neco-look'
+NeoBundle 'deton/eblook.vim'
+NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundleLazy 'vim-jp/cpp-vim', {
             \ 'autoload' : {'filetypes' : 'cpp'}
             \ }
@@ -205,3 +208,40 @@ endif
 let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
 let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
 let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+
+" eblook
+let eblook_dictlist1 = [
+      \{
+        \'book': '/home/ito/Dictionary/biology',
+        \'name': 'honmon',
+        \'title': '岩波_生物学辞典_第４版',
+      \},
+      \{
+        \'book': '/home/ito/Dictionary/LSD1',
+        \'name': 'lsd',
+        \'title': 'ライフサイエンス辞書',
+      \},
+      \{
+        \'book': '/home/ito/Dictionary/EDICT',
+        \'name': 'edict',
+        \'title': 'EDICT',
+      \},
+      \{
+        \'book': '/home/ito/Dictionary/rikagaku',
+        \'name': 'rikagaku',
+        \'title': '理化学辞典第５版',
+      \},
+      \{
+        \'book': '/home/ito/Dictionary/Readers\ Plus',
+        \'name': 'plus',
+        \'title': '研究社_リーダーズ＋プラス',
+      \},
+    \]
+
+" vim-easymotion
+" Disable default mapping
+let g:EasyMotion_do_mapping = 0 "Disable default mappings
+" Find Motions
+" Jump to anywhere you want by just `4` or `3` key strokes without thinking!
+" `<space>{char}{char}{target}`
+map <space> <Plug>(easymotion-s2)
