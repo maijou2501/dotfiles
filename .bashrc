@@ -113,6 +113,7 @@ alias c='cat -n'
 alias g='grep'
 alias h='history'
 alias p='ps auwxf'
+alias s='vim -c ":e ++enc=Shift_JIS"'
 alias t='top'
 alias v='vim'
 alias ..="cd .."
