@@ -212,14 +212,14 @@ let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\
 " eblook
 let eblook_dictlist1 = [
       \{
-        \'book': '/home/ito/Dictionary/biology',
-        \'name': 'honmon',
-        \'title': '岩波_生物学辞典_第４版',
+        \'book': '/home/ito/Dictionary/Readers\ Plus',
+        \'name': 'plus',
+        \'title': '研究社_リーダーズ＋プラス',
       \},
       \{
-        \'book': '/home/ito/Dictionary/LSD1',
-        \'name': 'lsd',
-        \'title': 'ライフサイエンス辞書',
+        \'book': '/home/ito/Dictionary/EIJIRO',
+        \'name': 'eijiro',
+        \'title': '英辞郎',
       \},
       \{
         \'book': '/home/ito/Dictionary/EDICT',
@@ -232,9 +232,14 @@ let eblook_dictlist1 = [
         \'title': '理化学辞典第５版',
       \},
       \{
-        \'book': '/home/ito/Dictionary/Readers\ Plus',
-        \'name': 'plus',
-        \'title': '研究社_リーダーズ＋プラス',
+        \'book': '/home/ito/Dictionary/biology',
+        \'name': 'honmon',
+        \'title': '岩波_生物学辞典_第４版',
+      \},
+      \{
+        \'book': '/home/ito/Dictionary/LSD1',
+        \'name': 'lsd',
+        \'title': 'ライフサイエンス辞書',
       \},
     \]
 
