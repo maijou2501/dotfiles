@@ -13,6 +13,7 @@ nnoremap df :vertical diffsplit
 nnoremap bb :ls<CR>:buf 
 nnoremap tn :tabnew<CR>
 nnoremap <ESC><ESC> :nohlsearch<CR>
+nnoremap mkd :setf ghmarkdown<CR>
 
 " for share folder
 se nobackup
@@ -65,6 +66,7 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'tpope/vim-surround'
+NeoBundle 'nathanaelkane/vim-indent-guides'
 
 " My Bundles here:
 " Refer to |:NeoBundle-examples|.
@@ -96,3 +98,7 @@ let g:EasyMotion_use_migemo = 1
 " vim-indent-guides
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_start_level=2
+let g:indent_guides_auto_colors = 0 
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#222222 ctermbg=gray
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#555555 ctermbg=darkgray
+let g:indent_guides_guide_size = 1
