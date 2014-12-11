@@ -9,8 +9,6 @@ se autochdir
 se expandtab
 "日本語の行の連結時には空白を入力しない。
 se formatoptions+=mM
-"□や○の文字があってもカーソル位置がずれないようにする。
-se ambiwidth=double
 "画面最後の行をできる限り表示する。
 se display+=lastline
 
@@ -25,6 +23,7 @@ nnoremap j gj
 nnoremap k gk
 nnoremap <Down> gj
 nnoremap <Up>   gk
+nnoremap / g/
 
 " for share folder
 se nobackup
@@ -132,3 +131,6 @@ endif
 let g:lightline = {
       \ 'colorscheme': 'wombat',
       \ }
+
+" migemo
+"set runtimepath+=$VIM\runtime\plugin
