@@ -7,6 +7,12 @@ se clipboard+=unnamed
 se cursorline
 se autochdir
 se expandtab
+"日本語の行の連結時には空白を入力しない。
+se formatoptions+=mM
+"□や○の文字があってもカーソル位置がずれないようにする。
+se ambiwidth=double
+"画面最後の行をできる限り表示する。
+se display+=lastline
 
 " map
 nnoremap df :vertical diffsplit 
@@ -14,6 +20,11 @@ nnoremap bb :ls<CR>:buf
 nnoremap tn :tabnew<CR>
 nnoremap <ESC><ESC> :nohlsearch<CR>
 nnoremap mkd :setf ghmarkdown<CR>
+"カーソルを表示行で移動する。物理行移動は<C-n>,<C-p>
+nnoremap j gj
+nnoremap k gk
+nnoremap <Down> gj
+nnoremap <Up>   gk
 
 " for share folder
 se nobackup
@@ -67,6 +78,8 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'nathanaelkane/vim-indent-guides'
+NeoBundle "fuenor/im_control.vim"
+NeoBundle "itchyny/lightline.vim"
 
 " My Bundles here:
 " Refer to |:NeoBundle-examples|.
@@ -102,3 +115,20 @@ let g:indent_guides_auto_colors = 0
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#222222 ctermbg=gray
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#555555 ctermbg=darkgray
 let g:indent_guides_guide_size = 1
+
+
+" im_control.vim
+if has('gui_running')
+  " 「日本語入力固定モード」の動作モード
+  let IM_CtrlMode = 4
+  " GVimで<C-^>が使える場合の「日本語入力固定モード」切替キー
+  inoremap <silent> <C-j> <C-^><C-r>=IMState('FixMode')<CR>
+else
+  " 非GUIの場合(この例では「日本語入力固定モード」を無効化している)
+  let IM_CtrlMode = 0
+endif
+
+" lightline.vim
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ }

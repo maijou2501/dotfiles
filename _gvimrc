@@ -4,6 +4,13 @@ se showtabline=2
 " color style
 colorscheme desert
 
+" ƒJƒ‰[İ’è‚µ‚½Œã‚ÉCursorIM‚ğ’è‹`‚·‚é
+if has('multi_byte_ime')
+  highlight Cursor guifg=NONE guibg=Green
+  highlight CursorIM guifg=NONE guibg=Purple
+endif
+
+
 " save window position and size
 let g:save_window_file = expand('~/.vimwinpos')
 augroup SaveWindow
@@ -40,5 +47,3 @@ if has('syntax')
     augroup END
     call ZenkakuSpace()
 endif
-
-
