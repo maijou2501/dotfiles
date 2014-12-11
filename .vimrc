@@ -104,6 +104,7 @@ NeoBundle 'ujihisa/neco-look'
 NeoBundle 'deton/eblook.vim'
 NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle "itchyny/lightline.vim"
+NeoBundle 'syui/airsave.vim'
 NeoBundleLazy 'vim-jp/cpp-vim', {
             \ 'autoload' : {'filetypes' : 'cpp'}
             \ }
@@ -210,7 +211,8 @@ let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
 let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
 let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
 
-" eblook
+
+" eblook.vim
 let eblook_dictlist1 = [
       \{
         \'book': '/home/ito/Dictionary/Readers\ Plus',
@@ -244,6 +246,7 @@ let eblook_dictlist1 = [
       \},
     \]
 
+
 " vim-easymotion
 " Disable default mapping
 let g:EasyMotion_do_mapping = 0 "Disable default mappings
@@ -252,7 +255,12 @@ let g:EasyMotion_do_mapping = 0 "Disable default mappings
 " `<space>{char}{char}{target}`
 map <space> <Plug>(easymotion-s2)
 
+
 " lightline.vim
 let g:lightline = {
       \ 'colorscheme': 'wombat',
       \ }
+
+
+" airsave.vim
+let g:auto_write = 1
