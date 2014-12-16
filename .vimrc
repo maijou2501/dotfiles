@@ -103,7 +103,7 @@ NeoBundle 'scrooloose/syntastic'
 NeoBundle 'ujihisa/neco-look'
 NeoBundle 'deton/eblook.vim'
 NeoBundle 'Lokaltog/vim-easymotion'
-NeoBundle "itchyny/lightline.vim"
+NeoBundle 'vim-scripts/vim-auto-save'
 NeoBundle 'syui/airsave.vim'
 NeoBundleLazy 'vim-jp/cpp-vim', {
             \ 'autoload' : {'filetypes' : 'cpp'}
@@ -255,12 +255,5 @@ let g:EasyMotion_do_mapping = 0 "Disable default mappings
 " `<space>{char}{char}{target}`
 map <space> <Plug>(easymotion-s2)
 
-
-" lightline.vim
-let g:lightline = {
-      \ 'colorscheme': 'wombat',
-      \ }
-
-
-" airsave.vim
-let g:auto_write = 1
+" vim-auto-save.vim
+let g:auto_save = 1
