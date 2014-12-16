@@ -103,8 +103,9 @@ NeoBundle 'scrooloose/syntastic'
 NeoBundle 'ujihisa/neco-look'
 NeoBundle 'deton/eblook.vim'
 NeoBundle 'Lokaltog/vim-easymotion'
-NeoBundle 'vim-scripts/vim-auto-save'
-NeoBundle 'syui/airsave.vim'
+NeoBundle 'vim-auto-save'
+NeoBundle "mru.vim"
+NeoBundle "tpope/vim-fugitive"
 NeoBundleLazy 'vim-jp/cpp-vim', {
             \ 'autoload' : {'filetypes' : 'cpp'}
             \ }
@@ -257,3 +258,7 @@ map <space> <Plug>(easymotion-s2)
 
 " vim-auto-save.vim
 let g:auto_save = 1
+
+" mru.vim
+let MRU_Max_Entries = 50
+let MRU_Auto_Close = 1
