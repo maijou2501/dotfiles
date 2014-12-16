@@ -6,6 +6,7 @@ se lcs=tab:>-,trail:~,extends:>,precedes:<,eol:$,nbsp:%
 se clipboard+=unnamed
 se cursorline
 se autochdir
+se spelllang=en,cjkS
 se expandtab
 "日本語の行の連結時には空白を入力しない。
 se formatoptions+=mM
