@@ -79,6 +79,7 @@ NeoBundle 'tpope/vim-surround'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle "fuenor/im_control.vim"
 NeoBundle "itchyny/lightline.vim"
+NeoBundle "tpope/vim-fugitive"
 NeoBundle "mru.vim"
 
 " My Bundles here:
