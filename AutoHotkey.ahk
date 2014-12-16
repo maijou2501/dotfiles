@@ -41,10 +41,12 @@ vk1Dsc07B & X:: Send {Delete}
 ; muhenkan & d -> Del
 vk1Dsc07B & D:: Send {Delete}
 
-; muhenkan & Space  -> Enter
+
 ; muhenkan & henkan -> Enter
-vk1Dsc07B & Space::Send {Enter}
 vk1Dsc07B & vk1Csc079::Send {Enter}
+
+; muhenkan & Space  -> hankaku Space
+vk1Dsc07B & Space:: Send,{sc029}{Space}{sc029}
 
 ; muhenkan & ^  -> Home
 ; muhenkan & $ -> End
