@@ -131,6 +131,3 @@ endif
 let g:lightline = {
       \ 'colorscheme': 'wombat',
       \ }
-
-" migemo
-"set runtimepath+=$VIM\runtime\plugin
