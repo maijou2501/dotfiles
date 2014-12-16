@@ -79,6 +79,7 @@ NeoBundle 'tpope/vim-surround'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle "fuenor/im_control.vim"
 NeoBundle "itchyny/lightline.vim"
+NeoBundle "mru.vim"
 
 " My Bundles here:
 " Refer to |:NeoBundle-examples|.
@@ -131,3 +132,7 @@ endif
 let g:lightline = {
       \ 'colorscheme': 'wombat',
       \ }
+
+" mru.vim
+let MRU_Max_Entries = 50
+let MRU_Auto_Close = 1
