@@ -31,8 +31,27 @@ se nobackup
 se noswapfile
 se noundofile
 
-" open URI
-"http://d.hatena.ne.jp/shunsuk/20110508/1304865150
+" [Writing a custom fold expression](http://vimcasts.org/episodes/writing-a-custom-fold-expression/)
+function! MarkdownFolds()
+  let thisline = getline(v:lnum)
+  if match(thisline, '^## ') >= 0
+    return "0"
+  elseif match(thisline, '^### ') >= 0
+    return ">1"
+  else
+    return "="
+  endif
+endfunction
+se foldmethod=expr
+se foldexpr=MarkdownFolds()
+
+function! MarkdownFoldText()
+  let foldsize = (v:foldend-v:foldstart)
+  return getline(v:foldstart).' ('.foldsize.' lines)'
+endfunction
+se foldtext=MarkdownFoldText()
+
+" [open URI]( http://d.hatena.ne.jp/shunsuk/20110508/1304865150 )
 function! HandleURI()
   let s:uri = matchstr(getline("."), '[a-z]*:\/\/[^ >,;:]*')
   echo s:uri
