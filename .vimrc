@@ -257,3 +257,4 @@ let g:auto_save = 1
 " mru.vim
 let MRU_Max_Entries = 50
 let MRU_Auto_Close = 1
+let MRU_Exclude_Files="^/tmp/.*\|^/var/tmp/.*"
