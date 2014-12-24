@@ -157,3 +157,4 @@ let g:lightline = {
 " mru.vim
 let MRU_Max_Entries = 50
 let MRU_Auto_Close = 1
+let MRU_Exclude_Files='^.*\\AppData\\Local\\Temp\\.*$'
