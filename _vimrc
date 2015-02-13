@@ -150,6 +150,7 @@ else
 endif
 
 " lightline.vim
+se laststatus=2
 let g:lightline = {
       \ 'colorscheme': 'wombat',
       \ }
