@@ -1,4 +1,22 @@
+version 6.0
+set fileencodings=guess,ucs-bom,ucs-2le,ucs-2,iso-2022-jp-3,utf-8,euc-jisx0213,euc-jp
+set formatexpr=autofmt#japanese#formatexpr()
+set formatoptions=tcqmM
+set guifont=MS_Gothic:h12:cSHIFTJIS
+set helplang=ja
+set history=50
+set hlsearch
+set ignorecase
+set incsearch
+set laststatus=2
+set printfont=MS_Mincho:h12:cSHIFTJIS
+set showmatch
+set smartcase
+set title
+
 " set
+syntax enable
+se wildmenu wildmode=list:full
 se nu
 se list
 se ts=2 sw=2 sts=0
@@ -150,7 +168,6 @@ else
 endif
 
 " lightline.vim
-se laststatus=2
 let g:lightline = {
       \ 'colorscheme': 'wombat',
       \ }
