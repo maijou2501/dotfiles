@@ -14,8 +14,12 @@ set showmatch
 set smartcase
 set title
 
+" color style
+colorscheme desert
+
 " set
 syntax enable
+se backspace=indent,eol,start
 se wildmenu wildmode=list:full
 se nu
 se list

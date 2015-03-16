@@ -1,9 +1,6 @@
 " tab width
 se showtabline=2
 
-" color style
-colorscheme desert
-
 " ƒJƒ‰[İ’è‚µ‚½Œã‚ÉCursorIM‚ğ’è‹`‚·‚é
 if has('multi_byte_ime')
   highlight Cursor guifg=NONE guibg=Green
