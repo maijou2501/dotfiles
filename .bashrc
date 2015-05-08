@@ -136,10 +136,15 @@ shopt -u histappend
 # intel compiler
 source /opt/intel/composerxe/bin/compilervars.sh intel64
 
-# openMPI
+# OpenMPI
 export MANPATH=$MANPATH:/opt/openmpi/share/man
 export PATH=$PATH:/opt/openmpi/bin
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/openmpi/lib
+
+# cuda
+export MANPATH=$MANPATH:/usr/local/cuda/doc/man
+export PATH=$PATH:/usr/local/cuda/bin
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda/lib64
 
 # byobu
 if [ $SHLVL = 1 ]; then
