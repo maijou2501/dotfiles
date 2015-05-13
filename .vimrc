@@ -40,6 +40,12 @@ nnoremap df :vertical diffsplit
 nnoremap bb :ls<CR>:buf 
 nnoremap <ESC><ESC> :nohlsearch<CR>
 
+nnoremap j gj
+nnoremap k gk
+nnoremap <Down> gj
+nnoremap <Up>   gk
+nnoremap / g/
+
 " autocmd
 " OpenMPI, Intel Compiler
 augroup cpp-path
@@ -252,7 +258,7 @@ let g:EasyMotion_do_mapping = 0 "Disable default mappings
 map <space> <Plug>(easymotion-s2)
 
 " vim-auto-save.vim
-let g:auto_save = 1
+let g:auto_save = 0
 
 " mru.vim
 let MRU_Max_Entries = 50
