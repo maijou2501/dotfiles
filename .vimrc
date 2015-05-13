@@ -27,7 +27,7 @@ se list
 se number
 se showmatch
 se wildmenu wildmode=list:full
-se ts=4 sw=4 sts=0
+se ts=2 sw=2 sts=0
 se lcs=tab:>-,trail:~,extends:>,precedes:<,eol:$,nbsp:%
 syntax enable
 colorscheme ron
@@ -44,7 +44,6 @@ nnoremap j gj
 nnoremap k gk
 nnoremap <Down> gj
 nnoremap <Up>   gk
-nnoremap / g/
 
 " autocmd
 " OpenMPI, Intel Compiler
