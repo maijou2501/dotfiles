@@ -22,6 +22,7 @@ set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.i
 se clipboard=unnamedplus,autoselect
 se cursorline
 se hlsearch
+se ic
 se incsearch
 se list
 se number
@@ -106,6 +107,7 @@ NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'deton/eblook.vim'
 NeoBundle 'honza/vim-snippets'
 NeoBundle 'mattn/gist-vim'
+NeoBundle 'mattn/webapi-vim'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-surround'
@@ -268,3 +270,7 @@ let MRU_Exclude_Files="^/tmp/.*\|^/var/tmp/.*"
 " syntastic
 let g:syntastic_c_include_dirs = [ '/opt/openmpi/include','/opt/intel/include']
 let g:syntastic_cpp_include_dirs = ['/opt/openmpi/include','/opt/intel/include']
+
+" gist-vim
+let g:gist_clip_command = 'xclip -selection clipboard'
+let g:gist_detect_filetype = 1
