@@ -102,15 +102,16 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
-NeoBundle 'honza/vim-snippets'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'scrooloose/syntastic'
-NeoBundle 'ujihisa/neco-look'
-NeoBundle 'deton/eblook.vim'
 NeoBundle 'Lokaltog/vim-easymotion'
+NeoBundle 'deton/eblook.vim'
+NeoBundle 'honza/vim-snippets'
+NeoBundle 'mattn/gist-vim'
+NeoBundle 'scrooloose/syntastic'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'tpope/vim-surround'
+NeoBundle 'ujihisa/neco-look'
+NeoBundle 'mru.vim'
 NeoBundle 'vim-auto-save'
-NeoBundle "mru.vim"
-NeoBundle "tpope/vim-fugitive"
 NeoBundleLazy 'vim-jp/cpp-vim', {
             \ 'autoload' : {'filetypes' : 'cpp'}
             \ }
@@ -263,3 +264,7 @@ let g:auto_save = 0
 let MRU_Max_Entries = 50
 let MRU_Auto_Close = 1
 let MRU_Exclude_Files="^/tmp/.*\|^/var/tmp/.*"
+
+" syntastic
+let g:syntastic_c_include_dirs = [ '/opt/openmpi/include','/opt/intel/include']
+let g:syntastic_cpp_include_dirs = ['/opt/openmpi/include','/opt/intel/include']
