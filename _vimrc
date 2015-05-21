@@ -117,11 +117,13 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 " Required:
 NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'Lokaltog/vim-easymotion'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle "fuenor/im_control.vim"
 NeoBundle "itchyny/lightline.vim"
+NeoBundle 'mattn/gist-vim', {'depends': 'mattn/webapi-vim'}
+NeoBundle 'mattn/webapi-vim'
+NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle "tpope/vim-fugitive"
+NeoBundle 'tpope/vim-surround'
 NeoBundle "mru.vim"
 
 " My Bundles here:
@@ -180,3 +182,7 @@ let g:lightline = {
 let MRU_Max_Entries = 50
 let MRU_Auto_Close = 1
 let MRU_Exclude_Files='^.*\\AppData\\Local\\Temp\\.*$'
+
+" gist-vim
+let g:gist_clip_command = 'putclip'
+let g:gist_detect_filetype = 1
