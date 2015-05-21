@@ -117,14 +117,14 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 " Required:
 NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'Lokaltog/vim-easymotion'
-NeoBundle "fuenor/im_control.vim"
-NeoBundle "itchyny/lightline.vim"
+NeoBundle 'fuenor/im_control.vim'
+NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'mattn/gist-vim', {'depends': 'mattn/webapi-vim'}
 NeoBundle 'mattn/webapi-vim'
 NeoBundle 'nathanaelkane/vim-indent-guides'
-NeoBundle "tpope/vim-fugitive"
+NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-surround'
-NeoBundle "mru.vim"
+NeoBundle 'mru.vim'
 
 " My Bundles here:
 " Refer to |:NeoBundle-examples|.
