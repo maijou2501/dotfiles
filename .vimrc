@@ -106,7 +106,7 @@ NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'deton/eblook.vim'
 NeoBundle 'honza/vim-snippets'
-NeoBundle 'mattn/gist-vim'
+NeoBundle 'mattn/gist-vim', {'depends': 'mattn/webapi-vim'}
 NeoBundle 'mattn/webapi-vim'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'tpope/vim-fugitive'
