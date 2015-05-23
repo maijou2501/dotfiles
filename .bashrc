@@ -155,3 +155,9 @@ function mkcd () { mkdir -p "$@" && eval cd "\"\$$#\""; }
 # vim
 alias vim="/usr/local/bin/vim"
 alias view="/usr/local/bin/view"
+
+# AWS setting
+
+if [ -f ~/.aws ]; then
+        . ~/.aws
+fi
