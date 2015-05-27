@@ -40,7 +40,7 @@ nnoremap df :vertical diffsplit
 nnoremap bb :ls<CR>:buf 
 nnoremap tn :tabnew<CR>
 nnoremap <ESC><ESC> :nohlsearch<CR>
-nnoremap mkd :setf ghmarkdown<CR>
+nnoremap mkd :setf markdown<CR>
 "カーソルを表示行で移動する。物理行移動は<C-n>,<C-p>
 nnoremap j gj
 nnoremap k gk
@@ -52,26 +52,6 @@ nnoremap / g/
 se nobackup
 se noswapfile
 se noundofile
-
-" [Writing a custom fold expression](http://vimcasts.org/episodes/writing-a-custom-fold-expression/)
-function! MarkdownFolds()
-  let thisline = getline(v:lnum)
-  if match(thisline, '^## ') >= 0
-    return "0"
-  elseif match(thisline, '^### ') >= 0
-    return ">1"
-  else
-    return "="
-  endif
-endfunction
-se foldmethod=expr
-se foldexpr=MarkdownFolds()
-
-function! MarkdownFoldText()
-  let foldsize = (v:foldend-v:foldstart)
-  return getline(v:foldstart).' ('.foldsize.' lines)'
-endfunction
-se foldtext=MarkdownFoldText()
 
 " [open URI]( http://d.hatena.ne.jp/shunsuk/20110508/1304865150 )
 function! HandleURI()
@@ -125,6 +105,10 @@ NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'mru.vim'
+" Markdown syntax
+NeoBundle 'godlygeek/tabular'
+NeoBundle 'joker1007/vim-markdown-quote-syntax'
+NeoBundle 'rcmdnk/vim-markdown'
 
 " My Bundles here:
 " Refer to |:NeoBundle-examples|.
@@ -185,4 +169,6 @@ let MRU_Exclude_Files='^.*\\AppData\\Local\\Temp\\.*$'
 
 " gist-vim
 let g:gist_clip_command = 'putclip'
-let g:gist_detect_filetype = 1
+
+" vim-markdown
+let g:vim_markdown_initial_foldlevel=2
