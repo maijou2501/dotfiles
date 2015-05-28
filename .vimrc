@@ -105,6 +105,7 @@ NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'deton/eblook.vim'
+NeoBundle 'godlygeek/tabular'
 NeoBundle 'honza/vim-snippets'
 NeoBundle 'mattn/gist-vim', {'depends': 'mattn/webapi-vim'}
 NeoBundle 'mattn/webapi-vim'
@@ -113,7 +114,6 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'ujihisa/neco-look'
 NeoBundle 'mru.vim'
-NeoBundle 'vim-auto-save'
 NeoBundleLazy 'vim-jp/cpp-vim', {
             \ 'autoload' : {'filetypes' : 'cpp'}
             \ }
@@ -250,7 +250,6 @@ let eblook_dictlist1 = [
       \},
     \]
 
-
 " vim-easymotion
 " Disable default mapping
 let g:EasyMotion_do_mapping = 0 "Disable default mappings
@@ -258,9 +257,6 @@ let g:EasyMotion_do_mapping = 0 "Disable default mappings
 " Jump to anywhere you want by just `4` or `3` key strokes without thinking!
 " `<space>{char}{char}{target}`
 map <space> <Plug>(easymotion-s2)
-
-" vim-auto-save.vim
-let g:auto_save = 0
 
 " mru.vim
 let MRU_Max_Entries = 50
