@@ -133,15 +133,12 @@ function share_history {
 PROMPT_COMMAND='share_history'
 shopt -u histappend
 
-# intel compiler
+# PATH of intel compiler, OpenMPI, CUDA
 source /opt/intel/composerxe/bin/compilervars.sh intel64
-export CPATH=$CPATH:/opt/openmpi/include:/opt/intel/include:/usr/local/cuda/include:/opt/arrayfire/include
-export LIBRARY_PATH=$LIBRARY_PATH:/opt/openmpi/lib/:/usr/local/cuda/lib64:/opt/arrayfire/lib64
-
-
-# OpenMPI & CUDA
-export MANPATH=$MANPATH:/opt/openmpi/share/man:/usr/local/cuda/doc/man
 export PATH=$PATH:/opt/openmpi/bin:/usr/local/cuda/bin
+export CPATH=$CPATH:/opt/openmpi/include:/opt/intel/include:/usr/local/cuda/include:/opt/arrayfire/include:/usr/local/include
+export MANPATH=$MANPATH:/opt/openmpi/share/man:/usr/local/cuda/doc/man
+export LIBRARY_PATH=$LIBRARY_PATH:/opt/openmpi/lib/:/usr/local/cuda/lib64:/opt/arrayfire/lib64
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/openmpi/lib:/usr/local/cuda/lib64:/opt/arrayfire/lib64
 
 # byobu
@@ -157,9 +154,9 @@ alias vim="/usr/local/bin/vim"
 alias view="/usr/local/bin/view"
 
 # AWS setting
-
 if [ -f ~/.aws ]; then
         . ~/.aws
 fi
 
+# ArrayFire
 export AF_PATH=/opt/arrayfire
