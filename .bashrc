@@ -135,8 +135,8 @@ shopt -u histappend
 
 # intel compiler
 source /opt/intel/composerxe/bin/compilervars.sh intel64
-export CPATH=$CPATH:/opt/openmpi/include:/opt/intel/include:/usr/local/cuda/include
-export LIBRARY_PATH=$LIBRARY_PATH:/opt/openmpi/lib/:/usr/local/cuda/lib64
+export CPATH=$CPATH:/opt/openmpi/include:/opt/intel/include:/usr/local/cuda/include:/opt/ArrayFire/include
+export LIBRARY_PATH=$LIBRARY_PATH:/opt/openmpi/lib/:/usr/local/cuda/lib64:/opt/ArrayFire/lib
 
 
 # OpenMPI & CUDA
