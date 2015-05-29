@@ -135,14 +135,14 @@ shopt -u histappend
 
 # intel compiler
 source /opt/intel/composerxe/bin/compilervars.sh intel64
-export CPATH=$CPATH:/opt/openmpi/include:/opt/intel/include:/usr/local/cuda/include:/opt/ArrayFire/include
-export LIBRARY_PATH=$LIBRARY_PATH:/opt/openmpi/lib/:/usr/local/cuda/lib64:/opt/ArrayFire/lib
+export CPATH=$CPATH:/opt/openmpi/include:/opt/intel/include:/usr/local/cuda/include:/opt/arrayfire/include
+export LIBRARY_PATH=$LIBRARY_PATH:/opt/openmpi/lib/:/usr/local/cuda/lib64:/opt/arrayfire/lib64
 
 
 # OpenMPI & CUDA
 export MANPATH=$MANPATH:/opt/openmpi/share/man:/usr/local/cuda/doc/man
 export PATH=$PATH:/opt/openmpi/bin:/usr/local/cuda/bin
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/openmpi/lib:/usr/local/cuda/lib64
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/openmpi/lib:/usr/local/cuda/lib64:/opt/arrayfire/lib64
 
 # byobu
 if [ $SHLVL = 1 ]; then
@@ -161,3 +161,5 @@ alias view="/usr/local/bin/view"
 if [ -f ~/.aws ]; then
         . ~/.aws
 fi
+
+export AF_PATH=/opt/arrayfire

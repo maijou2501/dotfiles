@@ -50,12 +50,12 @@ nnoremap <Up>   gk
 " OpenMPI, Intel Compiler
 augroup cpp-path
     autocmd!
-    autocmd FileType cpp setlocal path=.,/usr/include,/usr/local/include,/usr/include/c++,/opt/openmpi/include,/opt/intel/include,/opt/intel/composerxe/mkl/include,/opt/intel/composerxe/tbb/include,/opt/intel/composerxe/ipp/include
+    autocmd FileType cpp setlocal path=.,/usr/include,/usr/local/include,/usr/include/c++,/opt/openmpi/include,/opt/intel/include,/opt/intel/composerxe/mkl/include,/opt/intel/composerxe/tbb/include,/opt/intel/composerxe/ipp/include,/opt/arrayfire/include
 augroup END
 
 augroup c-path
     autocmd!
-    autocmd FileType c setlocal path=.,/usr/include/,/opt/openmpi/include,/opt/intel/include,/opt/intel/composerxe/mkl/include,/opt/intel/composerxe/tbb/include
+    autocmd FileType c setlocal path=.,/usr/include/,/opt/openmpi/include,/opt/intel/include,/opt/intel/composerxe/mkl/include,/opt/intel/composerxe/tbb/include,/opt/arrayfire/include
 augroup END
 
 " 全角スペースをハイライト表示
