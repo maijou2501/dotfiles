@@ -112,7 +112,7 @@ alias b='bc -ql'
 alias c='cat -n'
 alias g='grep'
 alias h='history'
-alias p='ps auwxf'
+alias p='ps auwwxf'
 alias s='vim -c ":e ++enc=Shift_JIS"'
 alias t='top'
 alias v='vim'
@@ -134,9 +134,9 @@ PROMPT_COMMAND='share_history'
 shopt -u histappend
 
 # PATH of intel compiler, OpenMPI, CUDA
-source /opt/intel/composerxe/bin/compilervars.sh intel64
+#source /opt/intel/composerxe/bin/compilervars.sh intel64
 export PATH=$PATH:/opt/openmpi/bin:/usr/local/cuda/bin
-export CPATH=$CPATH:/opt/openmpi/include:/opt/intel/include:/usr/local/cuda/include:/opt/arrayfire/include:/usr/local/include
+export CPATH=$CPATH:/opt/openmpi/include:/usr/local/cuda/include:/opt/arrayfire/include:/usr/local/include
 export MANPATH=$MANPATH:/opt/openmpi/share/man:/usr/local/cuda/doc/man
 export LIBRARY_PATH=$LIBRARY_PATH:/opt/openmpi/lib/:/usr/local/cuda/lib64:/opt/arrayfire/lib64
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/openmpi/lib:/usr/local/cuda/lib64:/opt/arrayfire/lib64
