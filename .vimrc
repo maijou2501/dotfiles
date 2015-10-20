@@ -264,8 +264,8 @@ let MRU_Auto_Close = 1
 let MRU_Exclude_Files="^/tmp/.*\|^/var/tmp/.*"
 
 " syntastic
-let g:syntastic_c_include_dirs = [ '/opt/openmpi/include','/opt/intel/include']
-let g:syntastic_cpp_include_dirs = ['/opt/openmpi/include','/opt/intel/include']
+let g:syntastic_c_include_dirs = [ '/opt/openmpi/include','/opt/intel/include','/opt/arrayfire/include']
+let g:syntastic_cpp_include_dirs = ['/opt/openmpi/include','/opt/intel/include','/opt/arrayfire/include']
 
 " gist-vim
 let g:gist_clip_command = 'xclip -selection clipboard'
