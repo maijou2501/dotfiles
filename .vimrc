@@ -112,7 +112,10 @@ NeoBundle 'mattn/webapi-vim'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-surround'
+NeoBundle 'thinca/vim-ref'
 NeoBundle 'ujihisa/neco-look'
+NeoBundle 'ujihisa/neco-ghc'
+NeoBundle 'ujihisa/ref-hoogle'
 NeoBundle 'mru.vim'
 NeoBundleLazy 'vim-jp/cpp-vim', {
             \ 'autoload' : {'filetypes' : 'cpp'}
@@ -264,8 +267,8 @@ let MRU_Auto_Close = 1
 let MRU_Exclude_Files="^/tmp/.*\|^/var/tmp/.*"
 
 " syntastic
-let g:syntastic_c_include_dirs = [ '/opt/openmpi/include','/opt/intel/include']
-let g:syntastic_cpp_include_dirs = ['/opt/openmpi/include','/opt/intel/include']
+let g:syntastic_c_include_dirs = [ '/opt/openmpi/include','/opt/intel/include','/opt/arrayfire/include']
+let g:syntastic_cpp_include_dirs = ['/opt/openmpi/include','/opt/intel/include','/opt/arrayfire/include']
 
 " gist-vim
 let g:gist_clip_command = 'xclip -selection clipboard'
