@@ -82,9 +82,9 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
+alias ll='ls -ahlF'
+alias la='ls -Ah'
+alias l='ls -CFh'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -121,6 +121,7 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias ......="cd ../../../../.."
+alias beep="paplay /usr/share/sounds/ubuntu/stereo/system-ready.ogg"
 export VISUAL=vim
 export EDITOR=vim
 bind '"\C-n": history-search-forward'

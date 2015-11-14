@@ -107,6 +107,7 @@ NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'deton/eblook.vim'
 NeoBundle 'godlygeek/tabular'
 NeoBundle 'honza/vim-snippets'
+NeoBundle 'kana/vim-filetype-haskell'
 NeoBundle 'mattn/gist-vim', {'depends': 'mattn/webapi-vim'}
 NeoBundle 'mattn/webapi-vim'
 NeoBundle 'scrooloose/syntastic'
