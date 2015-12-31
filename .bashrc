@@ -135,13 +135,13 @@ PROMPT_COMMAND='share_history'
 shopt -u histappend
 
 # PATH of intel compiler, OpenMPI, CUDA
-#source /opt/intel/composerxe/bin/compilervars.sh intel64
+source /opt/intel/composerxe/bin/compilervars.sh intel64
 export PATH=$PATH:/opt/openmpi/bin:/usr/local/cuda/bin
 export CPATH=$CPATH:/opt/openmpi/include:/usr/local/cuda/include:/opt/arrayfire/include:/usr/local/include
 export MANPATH=$MANPATH:/opt/openmpi/share/man:/usr/local/cuda/doc/man
 export LIBRARY_PATH=$LIBRARY_PATH:/opt/openmpi/lib/:/usr/local/cuda/lib64:/opt/arrayfire/lib64
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/openmpi/lib:/usr/local/cuda/lib64:/opt/arrayfire/lib64
-export LD_PRELOAD=/lib/x86_64-linux-gnu/libSegFault.so:/lib/i386-linux-gnu/libSegFault.so
+export LD_PRELOAD=/lib/x86_64-linux-gnu/libSegFault.so
 export SEGFAULT_SIGNALS=all
 
 # byobu
