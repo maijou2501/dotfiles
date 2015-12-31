@@ -141,6 +141,8 @@ export CPATH=$CPATH:/opt/openmpi/include:/usr/local/cuda/include:/opt/arrayfire/
 export MANPATH=$MANPATH:/opt/openmpi/share/man:/usr/local/cuda/doc/man
 export LIBRARY_PATH=$LIBRARY_PATH:/opt/openmpi/lib/:/usr/local/cuda/lib64:/opt/arrayfire/lib64
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/openmpi/lib:/usr/local/cuda/lib64:/opt/arrayfire/lib64
+export LD_PRELOAD=/lib/x86_64-linux-gnu/libSegFault.so:/lib/i386-linux-gnu/libSegFault.so
+export SEGFAULT_SIGNALS=all
 
 # byobu
 if [ $SHLVL = 1 ]; then
