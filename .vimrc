@@ -107,12 +107,16 @@ NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'deton/eblook.vim'
 NeoBundle 'godlygeek/tabular'
 NeoBundle 'honza/vim-snippets'
+NeoBundle 'kana/vim-filetype-haskell'
 NeoBundle 'mattn/gist-vim', {'depends': 'mattn/webapi-vim'}
 NeoBundle 'mattn/webapi-vim'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-surround'
+NeoBundle 'thinca/vim-ref'
 NeoBundle 'ujihisa/neco-look'
+NeoBundle 'ujihisa/neco-ghc'
+NeoBundle 'ujihisa/ref-hoogle'
 NeoBundle 'mru.vim'
 NeoBundleLazy 'vim-jp/cpp-vim', {
             \ 'autoload' : {'filetypes' : 'cpp'}

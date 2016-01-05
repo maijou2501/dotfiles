@@ -82,9 +82,9 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
+alias ll='ls -ahlF'
+alias la='ls -Ah'
+alias l='ls -CFh'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -121,6 +121,7 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias ......="cd ../../../../.."
+alias beep="paplay /usr/share/sounds/ubuntu/stereo/system-ready.ogg"
 export VISUAL=vim
 export EDITOR=vim
 bind '"\C-n": history-search-forward'
@@ -134,12 +135,14 @@ PROMPT_COMMAND='share_history'
 shopt -u histappend
 
 # PATH of intel compiler, OpenMPI, CUDA
-#source /opt/intel/composerxe/bin/compilervars.sh intel64
+source /opt/intel/composerxe/bin/compilervars.sh intel64
 export PATH=$PATH:/opt/openmpi/bin:/usr/local/cuda/bin
 export CPATH=$CPATH:/opt/openmpi/include:/usr/local/cuda/include:/opt/arrayfire/include:/usr/local/include
 export MANPATH=$MANPATH:/opt/openmpi/share/man:/usr/local/cuda/doc/man
 export LIBRARY_PATH=$LIBRARY_PATH:/opt/openmpi/lib/:/usr/local/cuda/lib64:/opt/arrayfire/lib64
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/openmpi/lib:/usr/local/cuda/lib64:/opt/arrayfire/lib64
+export LD_PRELOAD=/lib/x86_64-linux-gnu/libSegFault.so
+export SEGFAULT_SIGNALS=all
 
 # byobu
 if [ $SHLVL = 1 ]; then
@@ -160,3 +163,6 @@ fi
 
 # ArrayFire
 export AF_PATH=/opt/arrayfire
+
+# Haskell
+export PATH="$HOME/.cabal/bin:/opt/cabal/1.20/bin:/opt/ghc/7.10.3/bin:$PATH"
