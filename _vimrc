@@ -97,6 +97,8 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 " Required:
 NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'Lokaltog/vim-easymotion'
+NeoBundle 'eagletmt/ghcmod-vim'
+NeoBundle 'eagletmt/neco-ghc'
 NeoBundle 'fuenor/im_control.vim'
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'mattn/gist-vim', {'depends': 'mattn/webapi-vim'}
