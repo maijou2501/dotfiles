@@ -56,5 +56,5 @@ vk1Dsc07B & $::Send {End}
 ; muhenkan & a -> menu
 vk1Dsc07B & a::Send,{AppsKey}
 
-; Shift & Enter -> Space + Space + Enter
-+Enter:: Send {Space}{Space}{Enter}
+; Shift & Enter -> {hankaku&zenkaku}+Space + Space + Enter+{hankaku&zenkaku}
++Enter:: Send {sc029}{Space}{Space}{Enter}{sc029}
