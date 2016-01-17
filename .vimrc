@@ -1,4 +1,3 @@
-version 6.0
 if &cp | set nocp | endif
 let s:cpo_save=&cpo
 set cpo&vim
@@ -88,7 +87,9 @@ nnoremap gu :call HandleURI()<CR>
 
 " neobundle
 if has('vim_starting')
-  set nocompatible               " Be iMproved
+  if &compatible
+    set nocompatible               " Be iMproved
+  endif
 
   " Required:
   set runtimepath+=~/.vim/bundle/neobundle.vim/
@@ -107,9 +108,11 @@ NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'deton/eblook.vim'
 NeoBundle 'godlygeek/tabular'
 NeoBundle 'honza/vim-snippets'
+NeoBundle 'joker1007/vim-markdown-quote-syntax'
 NeoBundle 'kana/vim-filetype-haskell'
 NeoBundle 'mattn/gist-vim', {'depends': 'mattn/webapi-vim'}
 NeoBundle 'mattn/webapi-vim'
+NeoBundle 'rcmdnk/vim-markdown'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-surround'
@@ -261,6 +264,8 @@ let g:EasyMotion_do_mapping = 0 "Disable default mappings
 " Jump to anywhere you want by just `4` or `3` key strokes without thinking!
 " `<space>{char}{char}{target}`
 map <space> <Plug>(easymotion-s2)
+" Migemo feature (for Japanese user)
+let g:EasyMotion_use_migemo = 1
 
 " mru.vim
 let MRU_Max_Entries = 50

@@ -1,4 +1,3 @@
-version 6.0
 set fileencodings=guess,ucs-bom,ucs-2le,ucs-2,iso-2022-jp-3,utf-8,euc-jisx0213,euc-jp
 set formatexpr=autofmt#japanese#formatexpr()
 set formatoptions=tcqmM
