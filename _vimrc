@@ -172,4 +172,4 @@ let MRU_Exclude_Files='^.*\\AppData\\Local\\Temp\\.*$'
 let g:gist_clip_command = 'putclip'
 
 " vim-markdown
-let g:vim_markdown_initial_foldlevel=2
+let g:vim_markdown_initial_foldlevel=3
