@@ -18,21 +18,23 @@ colorscheme desert
 
 " set
 syntax enable
+se autochdir
 se backspace=indent,eol,start
-se wildmenu wildmode=list:full
-se nu
-se list
-se ts=2 sw=2 sts=0
-se lcs=tab:>-,trail:~,extends:>,precedes:<,eol:$,nbsp:%
 se clipboard+=unnamed
 se cursorline
-se autochdir
-se spelllang=en,cjk
-se expandtab
-"日本語の行の連結時には空白を入力しない。
-se formatoptions+=mM
 "画面最後の行をできる限り表示する。
 se display+=lastline
+se expandtab
+se foldlevel=2
+"日本語の行の連結時には空白を入力しない。
+se formatoptions+=mM
+se lcs=tab:>-,trail:~,extends:>,precedes:<,eol:$,nbsp:%
+se list
+se nu
+se spell
+se spelllang=en,cjk
+se ts=2 sw=2 sts=0
+se wildmenu wildmode=list:full
 
 " map
 nnoremap df :vertical diffsplit 
@@ -146,7 +148,6 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#222222 ctermbg=gray
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#555555 ctermbg=darkgray
 let g:indent_guides_guide_size = 1
 
-
 " im_control.vim
 if has('gui_running')
   " 「日本語入力固定モード」の動作モード
@@ -170,6 +171,3 @@ let MRU_Exclude_Files='^.*\\AppData\\Local\\Temp\\.*$'
 
 " gist-vim
 let g:gist_clip_command = 'putclip'
-
-" vim-markdown
-let g:vim_markdown_initial_foldlevel=3
