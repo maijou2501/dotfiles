@@ -87,14 +87,12 @@ nnoremap gu :call HandleURI()<CR>
 
 
 " neobundle
-if has('vim_starting')
-  if &compatible
-    set nocompatible               " Be iMproved
-  endif
-
-  " Required:
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
+if &compatible
+  set nocompatible               " Be iMproved
 endif
+
+" Required:
+set runtimepath+=~/.vim/bundle/neobundle.vim/
 
 " Required:
 call neobundle#begin(expand('~/.vim/bundle/'))
@@ -269,8 +267,7 @@ map <space> <Plug>(easymotion-s2)
 let g:EasyMotion_use_migemo = 1
 
 " mru.vim
-let MRU_Max_Entries = 50
-let MRU_Auto_Close = 1
+let MRU_Max_Entries = 100
 let MRU_Exclude_Files="^/tmp/.*\|^/var/tmp/.*"
 
 " syntastic

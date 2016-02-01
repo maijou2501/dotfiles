@@ -107,7 +107,6 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 # add
-# alias b='byobu'
 alias b='bc -ql'
 alias c='cat -n'
 alias g='grep'
@@ -115,7 +114,6 @@ alias h='history'
 alias p='ps auwwxf'
 alias s='vim -c ":e ++enc=Shift_JIS"'
 alias t='top'
-alias v='vim'
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
@@ -151,6 +149,10 @@ fi
 
 # mkdir $1 && cd $1
 function mkcd () { mkdir -p "$@" && eval cd "\"\$$#\""; }
+
+# vim option
+function v () { [ $# -eq 0 ] && vim -c "let MRU_Window_Height=50" -c MRU -c "let MRU_Window_Height=10" || vim $@; }
+
 
 # vim
 alias vim="/usr/local/bin/vim"
