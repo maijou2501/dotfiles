@@ -24,10 +24,10 @@ se clipboard+=unnamed
 se cursorline
 "画面最後の行をできる限り表示する。
 se display+=lastline
-se expandtab
 se foldlevel=2
 "日本語の行の連結時には空白を入力しない。
 se formatoptions+=mM
+se ic
 se lcs=tab:>-,trail:~,extends:>,precedes:<,eol:$,nbsp:%
 se list
 se nu
@@ -82,14 +82,12 @@ nnoremap gu :call HandleURI()<CR>
 " Note: Skip initialization for vim-tiny or vim-small.
 if !1 | finish | endif
 
-if has('vim_starting')
-  if &compatible
-    set nocompatible               " Be iMproved
-  endif
-
-  " Required:
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
+if &compatible
+  set nocompatible               " Be iMproved
 endif
+
+" Required:
+set runtimepath+=~/.vim/bundle/neobundle.vim/
 
 " Required:
 call neobundle#begin(expand('~/.vim/bundle/'))
