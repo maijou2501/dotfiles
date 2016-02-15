@@ -152,8 +152,6 @@ function mkcd () { mkdir -p "$@" && eval cd "\"\$$#\""; }
 
 # vim option
 function v () { [ $# -eq 0 ] && vim -c "let MRU_Window_Height=50" -c MRU -c "let MRU_Window_Height=10" || vim $@; }
-
-
 # vim
 alias vim="/usr/local/bin/vim"
 alias view="/usr/local/bin/view"
@@ -167,7 +165,12 @@ fi
 export AF_PATH=/opt/arrayfire
 
 # Haskell
-export PATH="$HOME/.cabal/bin:/opt/cabal/1.20/bin:/opt/ghc/7.10.3/bin:$PATH"
+export PATH=~/.local/bin:$PATH
+alias ghc="stack ghc --"
+alias ghci="stack ghci"
+alias runghc="stack runghc --"
+alias runhaskell="stack runghc --"
+eval "$(stack --bash-completion-script stack)"
 
 # rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"

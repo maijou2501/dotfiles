@@ -92,7 +92,7 @@ if &compatible
 endif
 
 " Required:
-set runtimepath+=~/.vim/bundle/neobundle.vim/
+set runtimepath^=~/.vim/bundle/neobundle.vim/
 
 " Required:
 call neobundle#begin(expand('~/.vim/bundle/'))
@@ -105,12 +105,15 @@ NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'deton/eblook.vim'
+NeoBundle 'eagletmt/ghcmod-vim'
 NeoBundle 'godlygeek/tabular'
 NeoBundle 'honza/vim-snippets'
 NeoBundle 'joker1007/vim-markdown-quote-syntax'
 NeoBundle 'kana/vim-filetype-haskell'
 NeoBundle 'mattn/gist-vim', {'depends': 'mattn/webapi-vim'}
 NeoBundle 'mattn/webapi-vim'
+NeoBundlw 'mpickering/hlint-refactor-vim'
+"NeoBundle 'osyo-manga/vim-watchdogs'
 NeoBundle 'rcmdnk/vim-markdown'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'tpope/vim-fugitive'
