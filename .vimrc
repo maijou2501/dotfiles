@@ -103,9 +103,20 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/vimproc', {
+			\ 'build' : {
+			\     'windows' : 'tools\\update-dll-mingw',
+			\     'cygwin' : 'make -f make_cygwin.mak',
+			\     'mac' : 'make',
+			\     'linux' : 'make',
+			\     'unix' : 'gmake',
+			\    },
+			\ }
 NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'deton/eblook.vim'
 NeoBundle 'eagletmt/ghcmod-vim'
+NeoBundle 'eagletmt/unite-haddock'
 NeoBundle 'godlygeek/tabular'
 NeoBundle 'honza/vim-snippets'
 NeoBundle 'joker1007/vim-markdown-quote-syntax'
@@ -121,7 +132,8 @@ NeoBundle 'tpope/vim-surround'
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'ujihisa/neco-look'
 NeoBundle 'ujihisa/neco-ghc'
-NeoBundle 'ujihisa/ref-hoogle'
+NeoBundle 'ujihisa/unite-haskellimport'
+"NeoBundle 'ujihisa/ref-hoogle'
 NeoBundle 'mru.vim'
 NeoBundleLazy 'vim-jp/cpp-vim', {
             \ 'autoload' : {'filetypes' : 'cpp'}
