@@ -112,7 +112,7 @@ NeoBundle 'joker1007/vim-markdown-quote-syntax'
 NeoBundle 'kana/vim-filetype-haskell'
 NeoBundle 'mattn/gist-vim', {'depends': 'mattn/webapi-vim'}
 NeoBundle 'mattn/webapi-vim'
-NeoBundlw 'mpickering/hlint-refactor-vim'
+NeoBundle 'mpickering/hlint-refactor-vim'
 "NeoBundle 'osyo-manga/vim-watchdogs'
 NeoBundle 'rcmdnk/vim-markdown'
 NeoBundle 'scrooloose/syntastic'
