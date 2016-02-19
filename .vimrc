@@ -145,7 +145,6 @@ NeoBundle 'eagletmt/unite-haddock'
 NeoBundle 'kana/vim-filetype-haskell'
 NeoBundle 'mpickering/hlint-refactor-vim'
 NeoBundle 'ujihisa/neco-ghc'
-NeoBundle 'ujihisa/ref-hoogle'
 NeoBundle 'ujihisa/unite-haskellimport'
 
 " My Bundles here:
@@ -311,13 +310,14 @@ let g:gist_clip_command = 'xclip -selection clipboard'
 let g:gist_detect_filetype = 1
 
 " unite.vim
-nnoremap <silent> ub :<C-u>Unite buffer<CR>
-nnoremap <silent> uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
-nnoremap <silent> uh :<C-u>Unite -auto-preview hoogle<CR>
-nnoremap <silent> ui :<C-u>Unite haskellimport<CR>
-nnoremap <silent> um :<C-u>Unite file_mru buffer<CR>
-nnoremap <silent> ur :<C-u>Unite -buffer-name=register register<CR>
-nnoremap <silent> uy :<C-u>Unite history/yank<CR>
+nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
+nnoremap <silent> ,uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+nnoremap <silent>,uh :<C-u>Unite -auto-preview hoogle<CR>
+nnoremap <silent>,uc :<C-u>UniteWithCursorWord -auto-preview hoogle<CR>
+nnoremap <silent> ,ui :<C-u>Unite haskellimport<CR>
+nnoremap <silent> ,um :<C-u>Unite file_mru buffer<CR>
+nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
+nnoremap <silent> ,uy :<C-u>Unite history/yank<CR>
 
 " vim-indent-guides
 let g:indent_guides_enable_on_vim_startup = 1
