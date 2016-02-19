@@ -49,46 +49,46 @@ nnoremap <Up>   gk
 " autocmd
 " OpenMPI, Intel Compiler
 augroup cpp-path
-    autocmd!
-    autocmd FileType cpp setlocal path=.,/usr/include,/usr/local/include,/usr/include/c++,/opt/openmpi/include,/opt/intel/include,/opt/intel/composerxe/mkl/include,/opt/intel/composerxe/tbb/include,/opt/intel/composerxe/ipp/include,/opt/arrayfire/include
+	autocmd!
+	autocmd FileType cpp setlocal path=.,/usr/include,/usr/local/include,/usr/include/c++,/opt/openmpi/include,/opt/intel/include,/opt/intel/composerxe/mkl/include,/opt/intel/composerxe/tbb/include,/opt/intel/composerxe/ipp/include,/opt/arrayfire/include
 augroup END
 
 augroup c-path
-    autocmd!
-    autocmd FileType c setlocal path=.,/usr/include/,/opt/openmpi/include,/opt/intel/include,/opt/intel/composerxe/mkl/include,/opt/intel/composerxe/tbb/include,/opt/arrayfire/include
+	autocmd!
+	autocmd FileType c setlocal path=.,/usr/include/,/opt/openmpi/include,/opt/intel/include,/opt/intel/composerxe/mkl/include,/opt/intel/composerxe/tbb/include,/opt/arrayfire/include
 augroup END
 
 " 全角スペースをハイライト表示
 function! ZenkakuSpace()
-    "highlight ZenkakuSpace cterm=reverse ctermfg=DarkMagenta gui=reverse guifg=DarkMagenta
-    highlight ZenkakuSpace cterm=underline ctermfg=DarkMagenta gui=underline guifg=DarkMagenta
+	"highlight ZenkakuSpace cterm=reverse ctermfg=DarkMagenta gui=reverse guifg=DarkMagenta
+	highlight ZenkakuSpace cterm=underline ctermfg=DarkMagenta gui=underline guifg=DarkMagenta
 endfunction
 if has('syntax')
-    augroup ZenkakuSpace
-        autocmd!
-        autocmd ColorScheme       * call ZenkakuSpace()
-        autocmd VimEnter,WinEnter * match ZenkakuSpace /　/
-    augroup END
-    call ZenkakuSpace()
+	augroup ZenkakuSpace
+		autocmd!
+		autocmd ColorScheme       * call ZenkakuSpace()
+		autocmd VimEnter,WinEnter * match ZenkakuSpace /　/
+	augroup END
+	call ZenkakuSpace()
 endif
 
 " open URI
 " http://d.hatena.ne.jp/shunsuk/20110508/1304865150
 function! HandleURI()
-  let s:uri = matchstr(getline("."), '[a-z]*:\/\/[^ >,;:]*')
-  echo s:uri
-  if s:uri != ""
-    exec "!gnome-open \"" . s:uri . "\""
-  else
-    echo "No URI found in line."
-  endif
+	let s:uri = matchstr(getline("."), '[a-z]*:\/\/[^ >,;:]*')
+	echo s:uri
+	if s:uri != ""
+		exec "!gnome-open \"" . s:uri . "\""
+	else
+		echo "No URI found in line."
+	endif
 endfunction
 nnoremap gu :call HandleURI()<CR>
 
 
 " neobundle
 if &compatible
-  set nocompatible               " Be iMproved
+	set nocompatible               " Be iMproved
 endif
 
 " Required:
@@ -103,6 +103,8 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
+NeoBundle 'Shougo/neomru.vim'
+NeoBundle 'Shougo/neoyank.vim'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimproc', {
 			\ 'build' : {
@@ -113,31 +115,38 @@ NeoBundle 'Shougo/vimproc', {
 			\     'unix' : 'gmake',
 			\    },
 			\ }
+" utility
 NeoBundle 'Lokaltog/vim-easymotion'
-NeoBundle 'deton/eblook.vim'
-NeoBundle 'eagletmt/ghcmod-vim'
-NeoBundle 'eagletmt/unite-haddock'
-NeoBundle 'godlygeek/tabular'
-NeoBundle 'honza/vim-snippets'
-NeoBundle 'joker1007/vim-markdown-quote-syntax'
-NeoBundle 'kana/vim-filetype-haskell'
+NeoBundle 'mru.vim'
+NeoBundle 'nathanaelkane/vim-indent-guides'
+NeoBundle 'thinca/vim-ref'
+" Git
 NeoBundle 'mattn/gist-vim', {'depends': 'mattn/webapi-vim'}
 NeoBundle 'mattn/webapi-vim'
-NeoBundle 'mpickering/hlint-refactor-vim'
-"NeoBundle 'osyo-manga/vim-watchdogs'
-NeoBundle 'rcmdnk/vim-markdown'
-NeoBundle 'scrooloose/syntastic'
 NeoBundle 'tpope/vim-fugitive'
+" markdown
+NeoBundle 'godlygeek/tabular'
+NeoBundle 'joker1007/vim-markdown-quote-syntax'
+NeoBundle 'rcmdnk/vim-markdown'
+" programing
+NeoBundle 'honza/vim-snippets'
+NeoBundle 'scrooloose/syntastic'
 NeoBundle 'tpope/vim-surround'
-NeoBundle 'thinca/vim-ref'
+" English
+NeoBundle 'deton/eblook.vim'
 NeoBundle 'ujihisa/neco-look'
-NeoBundle 'ujihisa/neco-ghc'
-NeoBundle 'ujihisa/unite-haskellimport'
-"NeoBundle 'ujihisa/ref-hoogle'
-NeoBundle 'mru.vim'
+" CPP
 NeoBundleLazy 'vim-jp/cpp-vim', {
-            \ 'autoload' : {'filetypes' : 'cpp'}
-            \ }
+			\ 'autoload' : {'filetypes' : 'cpp'}
+			\ }
+" Haskell
+NeoBundle 'eagletmt/ghcmod-vim'
+NeoBundle 'eagletmt/unite-haddock'
+NeoBundle 'kana/vim-filetype-haskell'
+NeoBundle 'mpickering/hlint-refactor-vim'
+NeoBundle 'ujihisa/neco-ghc'
+NeoBundle 'ujihisa/ref-hoogle'
+NeoBundle 'ujihisa/unite-haskellimport'
 
 " My Bundles here:
 " Refer to |:NeoBundle-examples|.
@@ -156,15 +165,15 @@ xmap <C-k>     <Plug>(neosnippet_expand_target)
 
 " SuperTab like snippets behavior.
 imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)"
-\: pumvisible() ? "\<C-n>" : "\<TAB>"
+			\ "\<Plug>(neosnippet_expand_or_jump)"
+			\: pumvisible() ? "\<C-n>" : "\<TAB>"
 smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)"
-\: "\<TAB>"
+			\ "\<Plug>(neosnippet_expand_or_jump)"
+			\: "\<TAB>"
 
 " For snippet_complete marker.
 if has('conceal')
-  set conceallevel=2 concealcursor=i
+	set conceallevel=2 concealcursor=i
 endif
 
 " Enable snipMate compatibility feature.
@@ -188,14 +197,14 @@ let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
 
 " Define dictionary.
 let g:neocomplete#sources#dictionary#dictionaries = {
-    \ 'default' : '',
-    \ 'vimshell' : $HOME.'/.vimshell_hist',
-    \ 'scheme' : $HOME.'/.gosh_completions'
-        \ }
+			\ 'default' : '',
+			\ 'c' : $HOME.'/.vim/dict/c.dict',
+			\ 'ruby' : $HOME.'/.vim/dict/ruby.dict',
+			\ }
 
 " Define keyword.
 if !exists('g:neocomplete#keyword_patterns')
-    let g:neocomplete#keyword_patterns = {}
+	let g:neocomplete#keyword_patterns = {}
 endif
 let g:neocomplete#keyword_patterns['default'] = '\h\w*'
 
@@ -207,9 +216,9 @@ inoremap <expr><C-l>     neocomplete#complete_common_string()
 " <CR>: close popup and save indent.
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 function! s:my_cr_function()
-  return neocomplete#close_popup() . "\<CR>"
-  " For no inserting <CR> key.
-  "return pumvisible() ? neocomplete#close_popup() : "\<CR>"
+	return neocomplete#close_popup() . "\<CR>"
+	" For no inserting <CR> key.
+	"return pumvisible() ? neocomplete#close_popup() : "\<CR>"
 endfunction
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
@@ -230,7 +239,7 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 " Enable heavy omni completion.
 if !exists('g:neocomplete#sources#omni#input_patterns')
-  let g:neocomplete#sources#omni#input_patterns = {}
+	let g:neocomplete#sources#omni#input_patterns = {}
 endif
 let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
 let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
@@ -239,37 +248,37 @@ let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\
 
 " eblook.vim
 let eblook_dictlist1 = [
-      \{
-        \'book': '/home/ito/Dictionary/Readers\ Plus',
-        \'name': 'plus',
-        \'title': '研究社_リーダーズ＋プラス',
-      \},
-      \{
-        \'book': '/home/ito/Dictionary/EIJIRO',
-        \'name': 'eijiro',
-        \'title': '英辞郎',
-      \},
-      \{
-        \'book': '/home/ito/Dictionary/EDICT',
-        \'name': 'edict',
-        \'title': 'EDICT',
-      \},
-      \{
-        \'book': '/home/ito/Dictionary/rikagaku',
-        \'name': 'rikagaku',
-        \'title': '理化学辞典第５版',
-      \},
-      \{
-        \'book': '/home/ito/Dictionary/biology',
-        \'name': 'honmon',
-        \'title': '岩波_生物学辞典_第４版',
-      \},
-      \{
-        \'book': '/home/ito/Dictionary/LSD1',
-        \'name': 'lsd',
-        \'title': 'ライフサイエンス辞書',
-      \},
-    \]
+			\{
+			\'book': '/home/ito/Dictionary/Readers\ Plus',
+			\'name': 'plus',
+			\'title': '研究社_リーダーズ＋プラス',
+			\},
+			\{
+			\'book': '/home/ito/Dictionary/EIJIRO',
+			\'name': 'eijiro',
+			\'title': '英辞郎',
+			\},
+			\{
+			\'book': '/home/ito/Dictionary/EDICT',
+			\'name': 'edict',
+			\'title': 'EDICT',
+			\},
+			\{
+			\'book': '/home/ito/Dictionary/rikagaku',
+			\'name': 'rikagaku',
+			\'title': '理化学辞典第５版',
+			\},
+			\{
+			\'book': '/home/ito/Dictionary/biology',
+			\'name': 'honmon',
+			\'title': '岩波_生物学辞典_第４版',
+			\},
+			\{
+			\'book': '/home/ito/Dictionary/LSD1',
+			\'name': 'lsd',
+			\'title': 'ライフサイエンス辞書',
+			\},
+			\]
 
 " vim-easymotion
 " Disable default mapping
@@ -288,7 +297,32 @@ let MRU_Exclude_Files="^/tmp/.*\|^/var/tmp/.*"
 " syntastic
 let g:syntastic_c_include_dirs = [ '/opt/openmpi/include','/opt/intel/include','/opt/arrayfire/include']
 let g:syntastic_cpp_include_dirs = ['/opt/openmpi/include','/opt/intel/include','/opt/arrayfire/include']
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 " gist-vim
 let g:gist_clip_command = 'xclip -selection clipboard'
 let g:gist_detect_filetype = 1
+
+" unite.vim
+nnoremap <silent> ub :<C-u>Unite buffer<CR>
+nnoremap <silent> uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+nnoremap <silent> uh :<C-u>Unite -auto-preview hoogle<CR>
+nnoremap <silent> ui :<C-u>Unite haskellimport<CR>
+nnoremap <silent> um :<C-u>Unite file_mru buffer<CR>
+nnoremap <silent> ur :<C-u>Unite -buffer-name=register register<CR>
+nnoremap <silent> uy :<C-u>Unite history/yank<CR>
+
+" vim-indent-guides
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_start_level=2
+let g:indent_guides_auto_colors = 0
+let g:indent_guides_guide_size = 1
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#222222 ctermbg=gray
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#555555 ctermbg=green
