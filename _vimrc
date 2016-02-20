@@ -54,9 +54,29 @@ se nobackup
 se noswapfile
 se noundofile
 
+" [ gf-user Ç≈ gf ÇÃìÆçÏÇägí£Ç∑ÇÈ - âiâìÇ…ñ¢äÆê¨ ]( http://d.hatena.ne.jp/thinca/20140324/1395590910 )
+function! GfFile()
+  let path = expand('<cfile>')
+  let line = 0
+  if path =~# ':\d\+:\?$'
+    let line = matchstr(path, '\d\+:\?$')
+    let path = matchstr(path, '.*\ze:\d\+:\?$')
+  endif
+  let path = findfile(path, getcwd() . ';')  " í«â¡
+  if !filereadable(path)
+    return 0
+  endif
+  return {
+  \   'path': path,
+  \   'line': line,
+  \   'col': 0,
+  \ }
+endfunction
+call gf#user#extend('GfFile', 1000)
+
 " [open URI]( http://d.hatena.ne.jp/shunsuk/20110508/1304865150 )
 function! HandleURI()
-  let s:uri = matchstr(getline("."), '[a-z]*:\/\/[^) >,;:]*')
+  let s:uri = matchstr(getline("."), '[a-z]*:\/\/[^)\] >,;]*')
   echo s:uri
   if s:uri != ""
     exec "!start cmd /c chrome \"" . s:uri . "\""
@@ -106,10 +126,12 @@ NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'mru.vim'
+NeoBundle 'open-browser.vim'
 " Markdown syntax
 NeoBundle 'godlygeek/tabular'
 NeoBundle 'joker1007/vim-markdown-quote-syntax'
 NeoBundle 'rcmdnk/vim-markdown'
+
 
 " My Bundles here:
 " Refer to |:NeoBundle-examples|.
@@ -169,3 +191,8 @@ let MRU_Exclude_Files='^.*\\AppData\\Local\\Temp\\.*$'
 
 " gist-vim
 let g:gist_clip_command = 'putclip'
+
+" open-browser.vim
+let g:netrw_nogx = 1 " disable netrw's gx mapping.
+nmap gx <Plug>(openbrowser-smart-search)
+vmap gx <Plug>(openbrowser-smart-search)

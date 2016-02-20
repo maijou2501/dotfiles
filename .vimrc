@@ -40,7 +40,6 @@ colorscheme ron
 nnoremap df :vertical diffsplit 
 nnoremap bb :ls<CR>:buf 
 nnoremap <ESC><ESC> :nohlsearch<CR>
-
 nnoremap j gj
 nnoremap k gk
 nnoremap <Down> gj
@@ -71,20 +70,6 @@ if has('syntax')
 	augroup END
 	call ZenkakuSpace()
 endif
-
-" open URI
-" http://d.hatena.ne.jp/shunsuk/20110508/1304865150
-function! HandleURI()
-	let s:uri = matchstr(getline("."), '[a-z]*:\/\/[^ >,;:]*')
-	echo s:uri
-	if s:uri != ""
-		exec "!gnome-open \"" . s:uri . "\""
-	else
-		echo "No URI found in line."
-	endif
-endfunction
-nnoremap gu :call HandleURI()<CR>
-
 
 " neobundle
 if &compatible
@@ -120,6 +105,7 @@ NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'mru.vim'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'thinca/vim-ref'
+NeoBundle 'open-browser.vim'
 " Git
 NeoBundle 'mattn/gist-vim', {'depends': 'mattn/webapi-vim'}
 NeoBundle 'mattn/webapi-vim'
@@ -312,8 +298,8 @@ let g:gist_detect_filetype = 1
 " unite.vim
 nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
 nnoremap <silent> ,uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
-nnoremap <silent>,uh :<C-u>Unite -auto-preview hoogle<CR>
-nnoremap <silent>,uc :<C-u>UniteWithCursorWord -auto-preview hoogle<CR>
+nnoremap <silent> ,uh :<C-u>Unite -auto-preview hoogle<CR>
+nnoremap <silent> ,uc :<C-u>UniteWithCursorWord -auto-preview hoogle<CR>
 nnoremap <silent> ,ui :<C-u>Unite haskellimport<CR>
 nnoremap <silent> ,um :<C-u>Unite file_mru buffer<CR>
 nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
@@ -326,3 +312,8 @@ let g:indent_guides_auto_colors = 0
 let g:indent_guides_guide_size = 1
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#222222 ctermbg=gray
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#555555 ctermbg=green
+
+" open-browser.vim
+let g:netrw_nogx = 1 " disable netrw's gx mapping.
+nmap gx <Plug>(openbrowser-smart-search)
+vmap gx <Plug>(openbrowser-smart-search)
