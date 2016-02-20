@@ -20,6 +20,7 @@ set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.i
 " ito setting
 se clipboard=unnamedplus,autoselect
 se cursorline
+se foldlevel=2
 se hlsearch
 se ic
 se incsearch
@@ -318,17 +319,6 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#555555 ctermbg=green
 let g:netrw_nogx = 1 " disable netrw's gx mapping.
 nmap gx <Plug>(openbrowser-smart-search)
 vmap gx <Plug>(openbrowser-smart-search)
-
-" neco-look
-"
-if !exists('g:neocomplete#text_mode_filetypes')
-    let g:neocomplete#text_mode_filetypes = {}
-endif
-let g:neocomplcache_text_mode_filetypes = {
-			\  'ghmarkdown': 1,
-			\  'plaintex': 1,
-			\  'help': 1,
-			\}
 
 " caw.vim
 nmap <Leader>c <Plug>(caw:i:toggle)
