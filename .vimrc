@@ -39,7 +39,6 @@ colorscheme ron
 
 " map
 nnoremap df :vertical diffsplit 
-nnoremap bb :ls<CR>:buf 
 nnoremap <ESC><ESC> :nohlsearch<CR>
 nnoremap j gj
 nnoremap k gk
@@ -92,6 +91,7 @@ NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'Shougo/neoyank.vim'
 NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/vimfiler'
 NeoBundle 'Shougo/vimproc', {
 			\ 'build' : {
 			\     'windows' : 'tools\\update-dll-mingw',
@@ -102,6 +102,7 @@ NeoBundle 'Shougo/vimproc', {
 			\    },
 			\ }
 " utility
+NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'mru.vim'
 NeoBundle 'nathanaelkane/vim-indent-guides'
@@ -277,21 +278,20 @@ map <space> <Plug>(easymotion-s2)
 " Migemo feature (for Japanese user)
 let g:EasyMotion_use_migemo = 1
 
-" mru.vim
-let MRU_Max_Entries = 100
-let MRU_Exclude_Files="^/tmp/.*\|^/var/tmp/.*"
-
 " syntastic
 let g:syntastic_c_include_dirs = [ '/opt/openmpi/include','/opt/intel/include','/opt/arrayfire/include']
 let g:syntastic_cpp_include_dirs = ['/opt/openmpi/include','/opt/intel/include','/opt/arrayfire/include']
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+function! s:syntastic()
+  SyntasticCheck
+  call lightline#update()
+endfunction
 
 " gist-vim
 let g:gist_clip_command = 'xclip -selection clipboard'
@@ -303,8 +303,8 @@ nnoremap <silent> ,uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
 nnoremap <silent> ,uh :<C-u>Unite -auto-preview hoogle<CR>
 nnoremap <silent> ,uc :<C-u>UniteWithCursorWord -auto-preview hoogle<CR>
 nnoremap <silent> ,ui :<C-u>Unite haskellimport<CR>
-nnoremap <silent> ,um :<C-u>Unite file_mru buffer<CR>
 nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
+nnoremap <silent> ,uu :<C-u>Unite file_mru buffer<CR>
 nnoremap <silent> ,uy :<C-u>Unite history/yank<CR>
 
 " vim-indent-guides
@@ -323,3 +323,95 @@ vmap gx <Plug>(openbrowser-smart-search)
 " caw.vim
 nmap <Leader>c <Plug>(caw:i:toggle)
 vmap <Leader>c <Plug>(caw:i:toggle)
+
+" vimfiler.vim
+let g:vimfiler_as_default_explorer = 1
+
+" gvim
+" メニューバーを非表示にする
+set guioptions-=m
+" ツールバーを非表示にする
+set guioptions-=T
+" 左右のスクロールバーを非表示にする
+set guioptions-=r
+set guioptions-=R
+set guioptions-=l
+set guioptions-=L
+" 水平スクロールバーを非表示にする
+set guioptions-=b
+
+" lightline.vim
+set guioptions-=e
+set laststatus=2
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'active': {
+      \   'left' : [ [ 'mode', 'paste' ],
+      \              [ 'fugitive', 'readonly', 'filename', 'modified' ] ],
+      \   'right': [ [ 'syntastic', 'lineinfo' ],
+      \              [ 'percent' ],
+      \              [ 'fileformat', 'fileencoding', 'filetype' ] ]
+      \ },
+      \ 'component_function': {
+      \   'fugitive': 'LightLineFugitive',
+      \   'filename': 'LightLineFilename',
+      \   'fileformat': 'LightLineFileformat',
+      \   'filetype': 'LightLineFiletype',
+      \   'fileencoding': 'LightLineFileencoding',
+      \   'mode': 'LightLineMode'
+      \ },
+      \ 'component_expand': {
+      \   'syntastic': 'SyntasticStatuslineFlag'
+      \ },
+      \ 'component_type': {
+      \   'syntastic': 'error'
+      \ }
+      \ }
+
+function! LightLineModified()
+  return &ft =~ 'help' ? '' : &modified ? '+' : &modifiable ? '' : '-'
+endfunction
+
+function! LightLineReadonly()
+  return &ft !~? 'help' && &readonly ? 'RO' : ''
+endfunction
+
+function! LightLineFilename()
+  return ( &ft == 'vimfiler' ? vimfiler#get_status_string() :
+        \  &ft == 'unite' ? unite#get_status_string() :
+        \  ''  != expand('%:t') ? expand('%:t') : '[No Name]')
+endfunction
+
+function! LightLineFugitive()
+  try
+    if &ft !~? 'vimfiler' && exists('*fugitive#head')
+      let mark = ''  " edit here for cool mark
+      let _ = fugitive#head()
+      return strlen(_) ? mark._ : ''
+    endif
+  catch
+  endtry
+  return ''
+endfunction
+
+function! LightLineFileformat()
+  return winwidth(0) > 70 ? &fileformat : ''
+endfunction
+
+function! LightLineFiletype()
+  return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype : 'no ft') : ''
+endfunction
+
+function! LightLineFileencoding()
+  return winwidth(0) > 70 ? (strlen(&fenc) ? &fenc : &enc) : ''
+endfunction
+
+function! LightLineMode()
+  return  &ft == 'unite' ? 'Unite' :
+        \ &ft == 'vimfiler' ? 'VimFiler' :
+        \ winwidth(0) > 60 ? lightline#mode() : ''
+endfunction
+
+let g:unite_force_overwrite_statusline = 0
+let g:vimfiler_force_overwrite_statusline = 0
+" let g:vimshell_force_overwrite_statusline = 0
