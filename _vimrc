@@ -18,7 +18,6 @@ colorscheme desert
 
 " set
 syntax enable
-se autochdir
 se backspace=indent,eol,start
 se clipboard+=unnamed
 se cursorline
@@ -179,3 +178,6 @@ nnoremap <silent> ,uy :<C-u>Unite history/yank<CR>
 let g:netrw_nogx = 1 " disable netrw's gx mapping.
 nmap gx <Plug>(openbrowser-smart-search)
 vmap gx <Plug>(openbrowser-smart-search)
+
+" vimfiler
+let g:vimfiler_as_default_explorer = 1
