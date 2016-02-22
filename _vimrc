@@ -161,7 +161,44 @@ endif
 " lightline.vim
 let g:lightline = {
 			\ 'colorscheme': 'wombat',
+			\ 'active': {
+			\   'left' : [ [ 'mode', 'paste' ],
+			\              [ 'fugitive', 'readonly', 'filename', 'modified' ] ]
+			\ },
+			\ 'component_function': {
+			\   'fugitive': 'LightLineFugitive',
+			\   'filename': 'LightLineFilename',
+			\   'mode': 'LightLineMode'
+			\ },
 			\ }
+
+function! LightLineFilename()
+	return ( &ft == 'vimfiler' ? vimfiler#get_status_string() :
+				\  &ft == 'unite' ? unite#get_status_string() :
+				\  ''  != expand('%:t') ? expand('%:t') : '[No Name]')
+endfunction
+
+function! LightLineFugitive()
+	try
+		if &ft !~? 'vimfiler' && exists('*fugitive#head')
+			let mark = ''  " edit here for cool mark
+			let _ = fugitive#head()
+			return strlen(_) ? mark._ : ''
+		endif
+	catch
+	endtry
+	return ''
+endfunction
+
+function! LightLineMode()
+	return  &ft == 'unite' ? 'Unite' :
+				\ &ft == 'vimfiler' ? 'VimFiler' :
+				\ winwidth(0) > 60 ? lightline#mode() : ''
+endfunction
+
+let g:unite_force_overwrite_statusline = 0
+let g:vimfiler_force_overwrite_statusline = 0
+
 
 " gist-vim
 let g:gist_clip_command = 'putclip'
