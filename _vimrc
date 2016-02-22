@@ -38,7 +38,6 @@ se wildmenu wildmode=list:full
 
 " map
 nnoremap df :vertical diffsplit 
-nnoremap bb :ls<CR>:buf 
 nnoremap tn :tabnew<CR>
 nnoremap <ESC><ESC> :nohlsearch<CR>
 nnoremap mkd :setf markdown<CR>
@@ -56,34 +55,31 @@ se noundofile
 
 " [open URI]( http://d.hatena.ne.jp/shunsuk/20110508/1304865150 )
 function! HandleURI()
-  let s:uri = matchstr(getline("."), '[a-z]*:\/\/[^) >,;:]*')
-  echo s:uri
-  if s:uri != ""
-    exec "!start cmd /c chrome \"" . s:uri . "\""
-  else
-    let s:uri = matchstr(getline("."), '\\\\.*\\.*\.\a\{3,4}')
-    echo s:uri
-    if s:uri != ""
-      exec "!start cmd /c \"" . s:uri . "\""
-    else
-      let s:uri = matchstr(getline("."), '\a\:\\.*\.\a\{3,4}')
-      echo s:uri
-      if s:uri != ""
-        exec "!start cmd /c \"" . s:uri . "\""
-      else
-        echo "No URI found in line."
-      endif
-    endif
-  endif
+	let s:uri = matchstr(getline("."), '[a-z]*:\/\/[^) >,;:]*')
+	echo s:uri
+	if s:uri != ""
+		exec "!start cmd /c chrome \"" . s:uri . "\""
+	else
+		let s:uri = matchstr(getline("."), '\\\\.*\\.*\.\a\{3,4}')
+		echo s:uri
+		if s:uri != ""
+			exec "!start cmd /c \"" . s:uri . "\""
+		else
+			let s:uri = matchstr(getline("."), '\a\:\\.*\.\a\{3,4}')
+			echo s:uri
+			if s:uri != ""
+				exec "!start cmd /c \"" . s:uri . "\""
+			else
+				echo "No URI found in line."
+			endif
+		endif
+	endif
 endfunction
 nnoremap gu :call HandleURI()<CR>
 
 " NeoBundle
-" Note: Skip initialization for vim-tiny or vim-small.
-if !1 | finish | endif
-
 if &compatible
-  set nocompatible               " Be iMproved
+	set nocompatible               " Be iMproved
 endif
 
 " Required:
@@ -95,17 +91,19 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 " Let NeoBundle manage NeoBundle
 " Required:
 NeoBundleFetch 'Shougo/neobundle.vim'
+NeoBundle 'Shougo/neomru.vim'
+NeoBundle 'Shougo/neoyank.vim'
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/vimfiler'
 NeoBundle 'Lokaltog/vim-easymotion'
-NeoBundle 'eagletmt/ghcmod-vim'
-NeoBundle 'eagletmt/neco-ghc'
 NeoBundle 'fuenor/im_control.vim'
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'mattn/gist-vim', {'depends': 'mattn/webapi-vim'}
 NeoBundle 'mattn/webapi-vim'
 NeoBundle 'nathanaelkane/vim-indent-guides'
+NeoBundle 'open-browser.vim'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-surround'
-NeoBundle 'mru.vim'
 " Markdown syntax
 NeoBundle 'godlygeek/tabular'
 NeoBundle 'joker1007/vim-markdown-quote-syntax'
@@ -148,24 +146,32 @@ let g:indent_guides_guide_size = 1
 
 " im_control.vim
 if has('gui_running')
-  " 「日本語入力固定モード」の動作モード
-  let IM_CtrlMode = 4
-  " GVimで<C-^>が使える場合の「日本語入力固定モード」切替キー
-  inoremap <silent> <C-j> <C-^><C-r>=IMState('FixMode')<CR>
+	" 「日本語入力固定モード」の動作モード
+	let IM_CtrlMode = 4
+	" GVimで<C-^>が使える場合の「日本語入力固定モード」切替キー
+	inoremap <silent> <C-j> <C-^><C-r>=IMState('FixMode')<CR>
 else
-  " 非GUIの場合(この例では「日本語入力固定モード」を無効化している)
-  let IM_CtrlMode = 0
+	" 非GUIの場合(この例では「日本語入力固定モード」を無効化している)
+	let IM_CtrlMode = 0
 endif
 
 " lightline.vim
 let g:lightline = {
-      \ 'colorscheme': 'wombat',
-      \ }
-
-" mru.vim
-let MRU_Max_Entries = 50
-let MRU_Auto_Close = 1
-let MRU_Exclude_Files='^.*\\AppData\\Local\\Temp\\.*$'
+			\ 'colorscheme': 'wombat',
+			\ }
 
 " gist-vim
 let g:gist_clip_command = 'putclip'
+
+" unite.vim
+nnoremap <silent> ub :<C-u>Unite buffer<CR>
+nnoremap <silent> uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+nnoremap <silent> uk :<C-u>Unite bookmark<CR>
+nnoremap <silent> ur :<C-u>Unite -buffer-name=register register<CR>
+nnoremap <silent> uu :<C-u>Unite file_mru buffer<CR>
+nnoremap <silent> uy :<C-u>Unite history/yank<CR>
+
+" open-browser.vim
+let g:netrw_nogx = 1 " disable netrw's gx mapping.
+nmap gx <Plug>(openbrowser-smart-search)
+vmap gx <Plug>(openbrowser-smart-search)
