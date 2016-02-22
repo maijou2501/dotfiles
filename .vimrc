@@ -17,7 +17,7 @@ set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.i
 " vim: set ft=vim :
 " set autoindent
 
-" ito setting
+" own setting
 se clipboard=unnamedplus,autoselect
 se cursorline
 se foldlevel=2
@@ -96,7 +96,6 @@ NeoBundle 'Shougo/vimproc', { 'build' : { 'linux' : 'make', }, }
 " utility
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'Lokaltog/vim-easymotion'
-NeoBundle 'mru.vim'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'open-browser.vim'
