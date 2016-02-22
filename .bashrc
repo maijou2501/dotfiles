@@ -13,8 +13,8 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=20000
+HISTSIZE=10000
+HISTFILESIZE=200000
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -150,11 +150,12 @@ fi
 # mkdir $1 && cd $1
 function mkcd () { mkdir -p "$@" && eval cd "\"\$$#\""; }
 
-# vim option
-function v () { [ $# -eq 0 ] && vim -c "let MRU_Window_Height=50" -c MRU -c "let MRU_Window_Height=10" || vim $@; }
 # vim
 alias vim="/usr/local/bin/vim"
+alias gvim="/usr/local/bin/gvim"
 alias view="/usr/local/bin/view"
+function v  () { [ $# -eq 0 ] && vim  -c "Unite file_mru buffer" || vim  $@; }
+function gv () { [ $# -eq 0 ] && gvim -c "Unite file_mru buffer" || gvim $@; }
 
 # AWS setting
 if [ -f ~/.aws ]; then

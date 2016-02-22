@@ -53,8 +53,29 @@ se nobackup
 se noswapfile
 se noundofile
 
+" [ gf-user Ç≈ gf ÇÃìÆçÏÇägí£Ç∑ÇÈ - âiâìÇ…ñ¢äÆê¨ ]( http://d.hatena.ne.jp/thinca/20140324/1395590910 )
+function! GfFile()
+  let path = expand('<cfile>')
+  let line = 0
+  if path =~# ':\d\+:\?$'
+    let line = matchstr(path, '\d\+:\?$')
+    let path = matchstr(path, '.*\ze:\d\+:\?$')
+  endif
+  let path = findfile(path, getcwd() . ';')  " í«â¡
+  if !filereadable(path)
+    return 0
+  endif
+  return {
+  \   'path': path,
+  \   'line': line,
+  \   'col': 0,
+  \ }
+endfunction
+call gf#user#extend('GfFile', 1000)
+
 " [open URI]( http://d.hatena.ne.jp/shunsuk/20110508/1304865150 )
 function! HandleURI()
+<<<<<<< HEAD
 	let s:uri = matchstr(getline("."), '[a-z]*:\/\/[^) >,;:]*')
 	echo s:uri
 	if s:uri != ""
@@ -74,6 +95,27 @@ function! HandleURI()
 			endif
 		endif
 	endif
+=======
+  let s:uri = matchstr(getline("."), '[a-z]*:\/\/[^)\] >,;]*')
+  echo s:uri
+  if s:uri != ""
+    exec "!start cmd /c chrome \"" . s:uri . "\""
+  else
+    let s:uri = matchstr(getline("."), '\\\\.*\\.*\.\a\{3,4}')
+    echo s:uri
+    if s:uri != ""
+      exec "!start cmd /c \"" . s:uri . "\""
+    else
+      let s:uri = matchstr(getline("."), '\a\:\\.*\.\a\{3,4}')
+      echo s:uri
+      if s:uri != ""
+        exec "!start cmd /c \"" . s:uri . "\""
+      else
+        echo "No URI found in line."
+      endif
+    endif
+  endif
+>>>>>>> refs/remotes/origin/master
 endfunction
 nnoremap gu :call HandleURI()<CR>
 
@@ -104,10 +146,16 @@ NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'open-browser.vim'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-surround'
+<<<<<<< HEAD
+=======
+NeoBundle 'mru.vim'
+NeoBundle 'open-browser.vim'
+>>>>>>> refs/remotes/origin/master
 " Markdown syntax
 NeoBundle 'godlygeek/tabular'
 NeoBundle 'joker1007/vim-markdown-quote-syntax'
 NeoBundle 'rcmdnk/vim-markdown'
+
 
 " My Bundles here:
 " Refer to |:NeoBundle-examples|.
@@ -163,6 +211,7 @@ let g:lightline = {
 " gist-vim
 let g:gist_clip_command = 'putclip'
 
+<<<<<<< HEAD
 " unite.vim
 nnoremap <silent> ub :<C-u>Unite buffer<CR>
 nnoremap <silent> uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
@@ -171,6 +220,8 @@ nnoremap <silent> ur :<C-u>Unite -buffer-name=register register<CR>
 nnoremap <silent> uu :<C-u>Unite file_mru buffer<CR>
 nnoremap <silent> uy :<C-u>Unite history/yank<CR>
 
+=======
+>>>>>>> refs/remotes/origin/master
 " open-browser.vim
 let g:netrw_nogx = 1 " disable netrw's gx mapping.
 nmap gx <Plug>(openbrowser-smart-search)
