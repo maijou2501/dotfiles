@@ -30,7 +30,8 @@ se spelllang=en,cjk
 se wildmenu wildmode=list:full
 se ts=2 sw=2 sts=0
 se lcs=tab:>-,trail:~,extends:>,precedes:<,eol:$,nbsp:%
-se formatoptions+=mM
+se textwidth=78
+se formatoptions+=mMt
 syntax enable
 colorscheme ron
 "colorscheme koehler
