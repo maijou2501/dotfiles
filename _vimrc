@@ -24,8 +24,10 @@ se cursorline
 "画面最後の行をできる限り表示する。
 se display+=lastline
 se foldlevel=2
-"日本語の行の連結時には空白を入力しない。
-se formatoptions+=mM
+"日本語の行の連結時には空白を入力しない。+ wrap
+se formatoptions+=mMt
+se formatoptions-=l
+se textwidth=78
 se ic
 se lcs=tab:>-,trail:~,extends:>,precedes:<,eol:$,nbsp:%
 se list
@@ -74,7 +76,7 @@ function! HandleURI()
     endif
   endif
 endfunction
-nnoremap gu :call HandleURI()<CR>
+nnoremap gu :call HandleURI()<CR><CR>
 
 " NeoBundle
 if &compatible
