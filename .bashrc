@@ -182,3 +182,9 @@ export PATH="/usr/local/heroku/bin:$PATH"
 
 # added by travis gem
 [ -f /home/ito/.travis/travis.sh ] && source /home/ito/.travis/travis.sh
+
+# Android Studio
+export PATH="/usr/local/android-studio/bin:$PATH"
+
+# microchip
+export PATH="$PATH:"/opt/microchip/xc8/v1.37/bin""
