@@ -112,7 +112,7 @@ alias c='cat -n'
 alias g='grep'
 alias h='history'
 alias p='ps auwwxf'
-alias s='vim -c ":e ++enc=Shift_JIS"'
+alias s='gvim -c ":e ++enc=Shift_JIS"'
 alias t='top'
 alias ..="cd .."
 alias ...="cd ../.."
@@ -187,4 +187,4 @@ export PATH="/usr/local/heroku/bin:$PATH"
 export PATH="/usr/local/android-studio/bin:$PATH"
 
 # microchip
-export PATH="$PATH:"/opt/microchip/xc8/v1.37/bin""
+export PATH="$PATH:/opt/microchip/xc8/v1.37/bin"
