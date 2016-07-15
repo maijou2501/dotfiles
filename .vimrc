@@ -108,7 +108,7 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'godlygeek/tabular'
 NeoBundle 'joker1007/vim-markdown-quote-syntax'
 NeoBundle 'rcmdnk/vim-markdown'
-" programing
+" programming
 NeoBundle 'honza/vim-snippets'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'tpope/vim-surround'
