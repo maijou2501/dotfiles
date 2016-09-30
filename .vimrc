@@ -20,18 +20,17 @@ set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.i
 se clipboard=unnamedplus,autoselect
 se cursorline
 se foldlevel=2
+se formatoptions+=mMt
 se hlsearch
-se ic
+se ignorecase
 se incsearch
 se list
-se number
+se listchars=tab:>-,trail:~,extends:>,precedes:<,eol:$,nbsp:%
 se showmatch
 se spelllang=en,cjk
-se wildmenu wildmode=list:full
-se ts=2 sw=2 sts=0
-se lcs=tab:>-,trail:~,extends:>,precedes:<,eol:$,nbsp:%
 se textwidth=78
-se formatoptions+=mMt
+se ts=2 sw=2 sts=0
+se wildmenu wildmode=list:full
 syntax enable
 colorscheme ron
 "colorscheme koehler
