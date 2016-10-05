@@ -28,10 +28,9 @@ se foldlevel=2
 se formatoptions+=mMt
 se formatoptions-=l
 se textwidth=78
-se ic
-se lcs=tab:>-,trail:~,extends:>,precedes:<,eol:$,nbsp:%
+se incsearch
 se list
-se nu
+se listchars=tab:>-,trail:~,extends:>,precedes:<,eol:$,nbsp:%
 se spell
 se spelllang=en,cjk
 se ts=2 sw=2 sts=0
@@ -103,7 +102,6 @@ NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'open-browser.vim'
 NeoBundle 'tpope/vim-surround'
-
 " Git
 NeoBundle 'mattn/gist-vim', {'depends': 'mattn/webapi-vim'}
 NeoBundle 'mattn/webapi-vim'
