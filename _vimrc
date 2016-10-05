@@ -18,7 +18,7 @@ colorscheme desert
 
 " set
 syntax enable
-se backspace=indent,eol,start
+se cindent
 se clipboard+=unnamed
 se cursorline
 "‰æ–ÊÅŒã‚Ìs‚ð‚Å‚«‚éŒÀ‚è•\Ž¦‚·‚éB
@@ -28,7 +28,6 @@ se foldlevel=2
 se formatoptions+=mMt
 se formatoptions-=l
 se textwidth=78
-se incsearch
 se list
 se listchars=tab:>-,trail:~,extends:>,precedes:<,eol:$,nbsp:%
 se spell
@@ -37,7 +36,7 @@ se ts=2 sw=2 sts=0
 se wildmenu wildmode=list:full
 
 " map
-nnoremap df :vertical diffsplit 
+nnoremap Y y
 nnoremap tn :tabnew<CR>
 nnoremap <ESC><ESC> :nohlsearch<CR>
 nnoremap mkd :setf markdown<CR>

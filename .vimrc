@@ -17,8 +17,10 @@ set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.i
 " vim: set ft=vim :
 
 " own setting
+se cindent
 se clipboard=unnamedplus,autoselect
 se cursorline
+se display+=lastline
 se foldlevel=2
 se formatoptions+=mMt
 se hlsearch
@@ -38,7 +40,7 @@ colorscheme ron
 "colorscheme zellner
 
 " map
-nnoremap df :vertical diffsplit 
+nnoremap Y y
 nnoremap <ESC><ESC> :nohlsearch<CR>
 nnoremap j gj
 nnoremap k gk
