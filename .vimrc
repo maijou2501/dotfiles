@@ -1,51 +1,27 @@
-if &cp | set nocp | endif
-let s:cpo_save=&cpo
-set cpo&vim
-nmap gx <Plug>NetrwBrowseX
-nnoremap <silent> <Plug>NetrwBrowseX :call netrw#NetrwBrowseX(expand("<cWORD>"),0)
-let &cpo=s:cpo_save
-unlet s:cpo_save
-set backspace=indent,eol,start
-set fileencodings=ucs-bom,utf-8,default,latin1
-set helplang=ja
-set history=200
-set nomodeline
-set printoptions=paper:a4
-set ruler
-set runtimepath=~/.vim,/var/lib/vim/addons,/usr/share/vim/vimfiles,/usr/share/vim/vim73,/usr/share/vim/vimfiles/after,/var/lib/vim/addons/after,~/.vim/afterfdajidj
-set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
-" vim: set ft=vim :
-
-" own setting
+" vim: ft=vim
 se cindent
 se clipboard=unnamedplus,autoselect
 se cursorline
 se display+=lastline
+se fileencodings=ucs-bom,utf-8,euc-jp,cp932
 se foldlevel=2
-se formatoptions+=mMt
+se formatoptions+=mM
 se hlsearch
 se ignorecase
 se incsearch
-se list
-se listchars=tab:>-,trail:~,extends:>,precedes:<,eol:$,nbsp:%
+se list listchars=tab:>-,trail:~,extends:>,precedes:<,eol:$,nbsp:%
 se showmatch
 se spelllang=en,cjk
 se textwidth=78
 se ts=2 sw=2 sts=0
-se wildmenu wildmode=list:full
+se wildmenu wildmode=longest,list:full
 syntax enable
-colorscheme ron
-"colorscheme koehler
-"colorscheme elflord
-"colorscheme zellner
-
-" map
+colorscheme ron "koehler elflord zellner
 nnoremap Y y
-nnoremap <ESC><ESC> :nohlsearch<CR>
 nnoremap j gj
 nnoremap k gk
-nnoremap <Down> gj
-nnoremap <Up>   gk
+nnoremap / g/
+nnoremap <ESC><ESC> :nohlsearch<CR>
 
 " autocmd
 " OpenMPI, Intel Compiler
@@ -61,7 +37,6 @@ augroup END
 
 " 全角スペースをハイライト表示
 function! ZenkakuSpace()
-	"highlight ZenkakuSpace cterm=reverse ctermfg=DarkMagenta gui=reverse guifg=DarkMagenta
 	highlight ZenkakuSpace cterm=underline ctermfg=DarkMagenta gui=underline guifg=DarkMagenta
 endfunction
 if has('syntax')
@@ -74,14 +49,8 @@ if has('syntax')
 endif
 
 " neobundle
-if &compatible
-	set nocompatible               " Be iMproved
-endif
-
 " Required:
 set runtimepath^=~/.vim/bundle/neobundle.vim/
-
-" Required:
 call neobundle#begin(expand('~/.vim/bundle/'))
 
 " Let NeoBundle manage NeoBundle

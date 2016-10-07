@@ -1,9 +1,9 @@
+" vim: ft=vim
 set fileencodings=guess,ucs-bom,ucs-2le,ucs-2,iso-2022-jp-3,utf-8,euc-jisx0213,euc-jp
 set formatexpr=autofmt#japanese#formatexpr()
 set formatoptions=tcqmM
 set guifont=MS_Gothic:h12:cSHIFTJIS
 set helplang=ja
-set history=50
 set hlsearch
 set ignorecase
 set incsearch
@@ -11,7 +11,6 @@ set laststatus=2
 set printfont=MS_Mincho:h12:cSHIFTJIS
 set showmatch
 set smartcase
-set title
 
 " color style
 colorscheme desert
@@ -21,30 +20,23 @@ syntax enable
 se cindent
 se clipboard+=unnamed
 se cursorline
-"画面最後の行をできる限り表示する。
 se display+=lastline
 se foldlevel=2
-"日本語の行の連結時には空白を入力しない。+ wrap
-se formatoptions+=mMt
-se formatoptions-=l
+se formatoptions+=mM
+se list listchars=tab:>-,trail:~,extends:>,precedes:<,eol:$,nbsp:%
+se spell spelllang=en,cjk
 se textwidth=78
-se list
-se listchars=tab:>-,trail:~,extends:>,precedes:<,eol:$,nbsp:%
-se spell
-se spelllang=en,cjk
 se ts=2 sw=2 sts=0
-se wildmenu wildmode=list:full
+se wildmenu wildmode=longest,list:full
 
 " map
 nnoremap Y y
 nnoremap tn :tabnew<CR>
 nnoremap <ESC><ESC> :nohlsearch<CR>
 nnoremap mkd :setf markdown<CR>
-"カーソルを表示行で移動する。物理行移動は<C-n>,<C-p>
+" カーソルを表示行で移動する。物理行移動は<C-n>,<C-p>
 nnoremap j gj
 nnoremap k gk
-nnoremap <Down> gj
-nnoremap <Up>   gk
 nnoremap / g/
 
 " for share folder
@@ -77,14 +69,8 @@ endfunction
 nnoremap gu :call HandleURI()<CR><CR>
 
 " NeoBundle
-if &compatible
-	set nocompatible               " Be iMproved
-endif
-
 " Required:
 set runtimepath+=~/.vim/bundle/neobundle.vim/
-
-" Required:
 call neobundle#begin(expand('~/.vim/bundle/'))
 
 " Let NeoBundle manage NeoBundle
