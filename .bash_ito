@@ -1,0 +1,29 @@
+if [ $SHLVL = 1 ]; then
+	byobu
+fi
+
+# export
+export EDITOR=nvim
+export TERM=screen-256color
+export VISUAL=nvim
+export XDG_CACHE_HOME=~/.cache
+export XDG_CONFIG_HOME=~/.config
+
+# alias
+alias beep="paplay /usr/share/sounds/ubuntu/stereo/system-ready.ogg"
+
+# bash history
+bind '"\C-n": history-search-forward'
+bind '"\C-p": history-search-backward'
+function share_history {
+	history -a
+	history -c
+	history -r
+}
+PROMPT_COMMAND='share_history'
+shopt -u histappend
+HISTSIZE=20000
+
+# bash
+shopt -s autocd
+shopt -s cdspell

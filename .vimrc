@@ -1,4 +1,3 @@
-" vim: ft=vim
 se cindent
 se clipboard=unnamedplus,autoselect
 se cursorline
@@ -15,7 +14,6 @@ se spelllang=en,cjk
 se textwidth=78
 se ts=2 sw=2 sts=0
 se wildmenu wildmode=longest,list:full
-syntax enable
 colorscheme ron "koehler elflord zellner
 nnoremap Y y
 nnoremap j gj
@@ -50,6 +48,7 @@ endif
 
 " neobundle
 " Required:
+if &cp | set nocp | endif
 set runtimepath^=~/.vim/bundle/neobundle.vim/
 call neobundle#begin(expand('~/.vim/bundle/'))
 
@@ -102,7 +101,7 @@ call neobundle#end()
 
 " Required:
 filetype plugin indent on
-
+syntax enable
 
 " neosnippet
 

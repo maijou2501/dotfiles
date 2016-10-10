@@ -1,0 +1,158 @@
+# plugins
+[[plugins]]
+repo = 'Shougo/dein.vim'
+[[plugins]]
+repo  = 'Shougo/vimproc.vim'
+build = 'make'
+
+# denite
+[[plugins]]
+repo = 'Shougo/denite.nvim'
+if   = 'has("nvim")'
+on_event = 'BufRead'
+hook_add ='''
+	nnoremap <silent> ,df :<C-u>Denite filetype<CR>
+	nnoremap <silent> ,dm :<C-u>Denite file_mru<CR>
+	nnoremap <silent> ,dp :<C-u>Denite file_rec<CR>
+	nnoremap <silent> ,dy :<C-u>Denite neoyank<CR>
+	" nnoremap <silent> ,dh :<C-u>Unite -auto-preview hoogle<CR>
+	" nnoremap <silent> ,dc :<C-u>UniteWithCursorWord -auto-preview hoogle<CR>
+	" nnoremap <silent> ,di :<C-u>Unite haskellimport<CR>
+'''
+[[plugins]]
+repo = 'Shougo/neomru.vim'
+[[plugins]]
+repo = 'Shougo/neoyank.vim'
+
+# interface
+[[plugins]]
+repo = 'itchyny/lightline.vim'
+on_event = 'BufRead'
+hook_source ='''
+let g:lightline = {
+      \ 'colorscheme': 'wombat'
+      \ }
+'''
+[[plugins]]
+repo = 'nathanaelkane/vim-indent-guides'
+on_event = 'BufRead'
+hook_source ='''
+	let g:indent_guides_enable_on_vim_startup = 1
+	let g:indent_guides_start_level=2
+	let g:indent_guides_auto_colors = 0
+	let g:indent_guides_guide_size = 1
+'''
+hook_add ='''
+	autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#222222 ctermbg=gray
+	autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#555555 ctermbg=green
+'''
+
+# behavior
+[[plugins]]
+repo        = 'Lokaltog/vim-easymotion'
+on_event    = 'BufRead'
+hook_source = '''
+" Disable default mapping
+let g:EasyMotion_do_mapping = 0 "Disable default mappings
+	" Migemo feature (for Japanese user)
+	let g:EasyMotion_use_migemo = 1
+'''
+hook_add ='''
+	" Find Motions
+	" Jump to anywhere you want by just `4` or `3` key strokes without thinking!
+	" `<space>{char}{char}{target}`
+	map <space> <Plug>(easymotion-s2)
+'''
+[[plugins]]
+repo        = 'open-browser.vim'
+on_event    = 'BufRead'
+hook_source = '''
+	let g:netrw_nogx = 1 " disable netrw's gx mapping.
+'''
+hook_add ='''
+	nmap gx <Plug>(openbrowser-smart-search)
+	vmap gx <Plug>(openbrowser-smart-search)
+'''
+[[plugins]] # code's variations formatter
+repo = 'godlygeek/tabular'
+
+# completion
+[[plugins]]
+repo = 'Townk/vim-autoclose'
+# on_i    = 1
+
+# Git
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+# on_cmd = [ 'Gstatus', 'Gwrite', 'Gblame', 'Gdiff' ]
+
+# english
+[[plugins]] # ctl+k,ctl+y or ctl+k,y
+repo        = 'deton/eblook.vim'
+on_event    = 'BufRead'
+hook_source = '''
+	let g:eblook_dictlist1 = [
+		\{
+		\'book'  : '/home/ito/Dictionary/Readers\ Plus',
+		\'name'  : 'plus',
+		\'title' : '研究社_リーダーズ＋プラス',
+		\},
+		\{
+		\'book'  : '/home/ito/Dictionary/EIJIRO',
+		\'name'  : 'eijiro',
+		\'title' : '英辞郎',
+		\},
+		\{
+		\'book'  : '/home/ito/Dictionary/EDICT',
+		\'name'  : 'edict',
+		\'title' : 'EDICT',
+		\},
+		\{
+		\'book'  : '/home/ito/Dictionary/rikagaku',
+		\'name'  : 'rikagaku',
+		\'title' : '理化学辞典第5版',
+		\},
+		\{
+		\'book'  : '/home/ito/Dictionary/biology',
+		\'name'  : 'honmon',
+		\'title' : '岩波_生物学辞典_第4版',
+		\},
+		\{
+		\'book'  : '/home/ito/Dictionary/LSD1',
+		\'name'  : 'lsd',
+		\'title' : 'ライフサイエンス辞書',
+		\},
+	\]
+'''
+
+# programming
+[[plugins]]
+repo = 'thinca/vim-ref'
+[[plugins]] # check file type
+repo = 'Shougo/context_filetype.vim'
+[[plugins]] # auto change ft on the code
+repo = 'osyo-manga/vim-precious'
+depends = ['context_filetype.vim']
+[[plugins]] # syntax check
+repo        = 'scrooloose/syntastic'
+on_event    = 'BufRead'
+hook_source = '''
+	" let g:syntastic_c_include_dirs = [ '/opt/openmpi/include','/opt/intel/include','/opt/arrayfire/include']
+	" let g:syntastic_cpp_include_dirs = ['/opt/openmpi/include','/opt/intel/include','/opt/arrayfire/include']
+	set statusline+=%#warningmsg#
+	set statusline+=%{SyntasticStatuslineFlag()}
+	set statusline+=%*
+	let g:syntastic_always_populate_loc_list = 1
+	let g:syntastic_auto_loc_list = 1
+	let g:syntastic_check_on_open = 1
+	let g:syntastic_check_on_wq = 0
+'''
+[[plugins]]
+repo = 'tpope/vim-surround'
+[[plugins]] # comment out
+repo     = 'tyru/caw.vim'
+on_event = 'BufRead'
+hook_add ='''
+	nmap <Leader>c <Plug>(caw:i:toggle)
+	vmap <Leader>c <Plug>(caw:i:toggle)
+'''

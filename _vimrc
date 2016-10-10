@@ -1,4 +1,3 @@
-" vim: ft=vim
 set fileencodings=guess,ucs-bom,ucs-2le,ucs-2,iso-2022-jp-3,utf-8,euc-jisx0213,euc-jp
 set formatexpr=autofmt#japanese#formatexpr()
 set formatoptions=tcqmM
@@ -70,6 +69,7 @@ nnoremap gu :call HandleURI()<CR><CR>
 
 " NeoBundle
 " Required:
+if &co set nocp endif
 set runtimepath+=~/.vim/bundle/neobundle.vim/
 call neobundle#begin(expand('~/.vim/bundle/'))
 

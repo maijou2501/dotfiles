@@ -1,0 +1,105 @@
+# filer
+# [[plugins]]
+# repo       = 'Shougo/vimfiler'
+# on_cmd     = [ 'VimFilerTab', 'VimFiler', 'VimFilerExplorer' ]
+# hook_souce = '''
+# 	let g:vimfiler_as_default_explorer = 1
+# '''
+
+# completion
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+if   = 'has("nvim")'
+on_i = 1
+hook_source ='''
+	let g:python3_host_prog = '/usr/bin/python3'
+	let g:deoplete#enable_at_startup = 1
+'''
+[[plugins]]
+repo    = 'Shougo/neosnippet.vim'
+depends = 'context_filetype.vim'
+on_i    = 1
+hook_souce ='''
+	" For snippet_complete marker.
+	if has('conceal')
+		set conceallevel=2 concealcursor=i
+	endif
+	" Enable snipMate compatibility feature.
+	let g:neosnippet#enable_snipmate_compatibility = 1
+	" Tell Neosnippet about the other snippets
+	let g:neosnippet#snippets_directory='$XDG_CONFIG_HOME/nvim/repos/github.com/honza/vim-snippets/snippets'
+'''
+hook_add ='''
+	" plug-in key-mappings.  
+	imap <C-k> <Plug>(neosnippet_expand_or_jump)
+	smap <C-k> <Plug>(neosnippet_expand_or_jump)
+	xmap <C-k> <Plug>(neosnippet_expand_target)
+	" SuperTab like snippets behavior.
+	imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+		\ "\<Plug>(neosnippet_expand_or_jump)"
+		\: pumvisible() ? "\<C-n>" : "\<TAB>"
+	smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+		\ "\<Plug>(neosnippet_expand_or_jump)"
+		\: "\<TAB>"
+'''
+[[plugins]]
+repo = 'Shougo/neosnippet-snippets'
+on_i = 1
+[[plugins]]
+repo     = 'honza/vim-snippets'
+on_souce = 'neosnippet.vim'
+[[plugins]]
+repo    = 'ujihisa/neco-look'
+depends = 'deoplete.nvim'
+on_i    = 1
+
+# Git
+[[plugins]]
+repo    = 'mattn/gist-vim'
+depends = 'webapi-vim'
+on_cmd  = 'Gist'
+hook_souce = '''
+	let g:gist_clip_command = 'xclip -selection clipboard'
+	let g:gist_detect_filetype = 1
+'''
+[[plugins]]
+repo = 'mattn/webapi-vim'
+on_souce = 'gist-vim'
+
+# toml
+[[plugins]] # toml syntax
+repo  = 'cespare/vim-toml'
+on_ft = 'toml'
+
+# markdown
+[[plugins]]
+repo  = 'joker1007/vim-markdown-quote-syntax'
+on_ft = 'markdown'
+[[plugins]]
+repo  = 'rcmdnk/vim-markdown'
+on_ft = 'markdown'
+
+# C++
+[[plugins]]
+repo  = 'vim-jp/cpp-vim'
+on_ft = 'cpp'
+
+# Haskell
+[[plugins]]
+repo  = 'eagletmt/ghcmod-vim'
+on_ft = 'haskell'
+[[plugins]]
+repo  = 'eagletmt/unite-haddock'
+on_ft = 'haskell'
+[[plugins]]
+repo  = 'kana/vim-filetype-haskell'
+on_ft = 'haskell'
+[[plugins]]
+repo  = 'mpickering/hlint-refactor-vim'
+on_ft = 'haskell'
+[[plugins]]
+repo  = 'ujihisa/neco-ghc'
+on_ft = 'haskell'
+[[plugins]]
+repo  = 'ujihisa/unite-haskellimport'
+on_ft = 'haskell'
