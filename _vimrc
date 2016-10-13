@@ -69,7 +69,7 @@ nnoremap gu :call HandleURI()<CR><CR>
 
 " NeoBundle
 " Required:
-if &co set nocp endif
+if &cp | set nocp | endif
 set runtimepath+=~/.vim/bundle/neobundle.vim/
 call neobundle#begin(expand('~/.vim/bundle/'))
 
