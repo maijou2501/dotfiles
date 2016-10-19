@@ -18,7 +18,7 @@ colorscheme ron "koehler elflord zellner
 nnoremap bb :ls<CR>:buf 
 nnoremap j gj
 nnoremap k gk
-nnoremap Y y
+nnoremap Y y$
 nnoremap <ESC><ESC> :nohlsearch<CR>
 
 " Zenkaku Space highlight
