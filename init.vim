@@ -1,3 +1,4 @@
+se autochdir
 se cindent
 se clipboard=unnamedplus
 se cursorline
