@@ -16,6 +16,7 @@ colorscheme desert
 
 " set
 syntax enable
+se autochdir
 se cindent
 se clipboard+=unnamed
 se cursorline
@@ -29,7 +30,7 @@ se ts=2 sw=2 sts=0
 se wildmenu wildmode=longest,list:full
 
 " map
-nnoremap Y y
+nnoremap Y y$
 nnoremap tn :tabnew<CR>
 nnoremap <ESC><ESC> :nohlsearch<CR>
 nnoremap mkd :setf markdown<CR>
@@ -95,7 +96,7 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'godlygeek/tabular'
 NeoBundle 'joker1007/vim-markdown-quote-syntax'
 NeoBundle 'rcmdnk/vim-markdown'
-
+NeoBundle 'kannokanno/previm'
 
 " My Bundles here:
 " Refer to |:NeoBundle-examples|.
