@@ -1,2 +1,9 @@
+set colored-stats on
 set completion-ignore-case on
+set completion-map-case on
+set completion-query-items 100
+set mark-symlinked-directories on
 set show-all-if-ambiguous on
+set show-all-if-unmodified on
+set skip-completed-text on
+set visible-stats on
