@@ -10,7 +10,9 @@ export XDG_CACHE_HOME=~/.cache
 export XDG_CONFIG_HOME=~/.config
 
 # alias
-alias beep="paplay /usr/share/sounds/ubuntu/stereo/system-ready.ogg"
+alias beep='paplay /usr/share/sounds/ubuntu/stereo/system-ready.ogg'
+alias rm=trash
+alias sudo='sudo '
 
 # bash history
 bind '"\C-n": history-search-forward'
@@ -27,3 +29,10 @@ HISTSIZE=20000
 # bash
 shopt -s autocd
 shopt -s cdspell
+shopt -s checkhash
+shopt -s extglob
+shopt -s globstar
+shopt -s histreedit
+shopt -s histveriy
+shopt -s hostcomplate
+shopt -s no_empty_cmd_completion
