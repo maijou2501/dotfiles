@@ -33,6 +33,6 @@ shopt -s checkhash
 shopt -s extglob
 shopt -s globstar
 shopt -s histreedit
-shopt -s histveriy
-shopt -s hostcomplate
+shopt -s histverify
+shopt -s hostcomplete
 shopt -s no_empty_cmd_completion
