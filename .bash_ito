@@ -12,6 +12,7 @@ export XDG_CONFIG_HOME=~/.config
 # alias
 alias beep='paplay /usr/share/sounds/ubuntu/stereo/system-ready.ogg'
 alias rm=trash
+alias rmdir=trash
 alias sudo='sudo '
 
 # bash history
