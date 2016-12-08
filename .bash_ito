@@ -3,16 +3,16 @@ if [ $SHLVL = 1 ]; then
 fi
 
 # export
-export EDITOR=nvim
+if type nvim >/dev/null 2>&1; then
+	export EDITOR=nvim
+	export VISUAL=nvim
+fi
 export TERM=screen-256color
-export VISUAL=nvim
 export XDG_CACHE_HOME=~/.cache
 export XDG_CONFIG_HOME=~/.config
 
 # alias
 alias beep='paplay /usr/share/sounds/ubuntu/stereo/system-ready.ogg'
-alias rm=trash
-alias rmdir=trash
 alias sudo='sudo '
 
 # bash history
