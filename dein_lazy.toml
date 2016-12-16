@@ -103,3 +103,13 @@ on_ft = 'haskell'
 [[plugins]]
 repo  = 'ujihisa/unite-haskellimport'
 on_ft = 'haskell'
+
+# Python
+[[plugins]]
+repo  = 'davidhalter/jedi-vim'
+on_ft = 'python'
+
+# Scala
+[[plugins]]
+repo  = 'derekwyatt/vim-scala'
+on_ft = 'scala'
