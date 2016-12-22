@@ -22,6 +22,18 @@ nnoremap k gk
 nnoremap Y y$
 nnoremap <ESC><ESC> :nohlsearch<CR>
 
+" netrw-explore
+let g:netrw_use_errorwindow = 0
+let g:netrw_silent = 1
+let g:netrw_banner = 0
+let g:netrw_cursor = 3
+let g:netrw_browse_split = 4
+let g:netrw_altv    = 1
+let g:netrw_preview = 1
+let g:netrw_winsize = 85
+let g:netrw_liststyle = 3
+let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
+
 " Zenkaku Space highlight
 function! ZenkakuSpace()
 	highlight ZenkakuSpace cterm=reverse ctermfg=DarkMagenta gui=reverse guifg=DarkMagenta
