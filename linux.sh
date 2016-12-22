@@ -12,6 +12,7 @@ else
 	source ~/.bashrc
 
 	ln -s $1/.inputrc ~/.inputrc
+	ln -s $1/.ctags   ~/.ctags
 	ln -s $1/.toprc   ~/.toprc
 	mkdir $XDG_CONFIG_HOME/nvim
 	ln -s $1/init.vim $XDG_CONFIG_HOME/nvim/init.vim

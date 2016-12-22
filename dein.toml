@@ -156,3 +156,15 @@ hook_add ='''
 	nmap <Leader>c <Plug>(caw:i:toggle)
 	vmap <Leader>c <Plug>(caw:i:toggle)
 '''
+[[plugins]]
+repo = 'majutsushi/tagbar'
+hook_add = '''
+	let g:tagbar_type_markdown = {
+		\ 'ctagstype' : 'markdown',
+		\ 'kinds' : [
+				\ 'h:Heading_L2',
+				\ 'i:Heading_L3',
+				\ 'k:Heading_L4'
+		\ ]
+\ }
+'''
