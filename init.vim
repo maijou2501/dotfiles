@@ -12,6 +12,7 @@ se incsearch
 se list listchars=tab:>-,trail:~,extends:>,precedes:<,eol:$,nbsp:%
 se showmatch
 se spelllang=en,cjk
+se tags=tags;/,codex.tags;/
 se textwidth=78
 se ts=2 sw=2 sts=0
 se wildmenu wildmode=longest,list:full
