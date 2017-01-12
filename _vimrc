@@ -84,6 +84,9 @@ NeoBundle 'Shougo/vimfiler'
 " utility
 NeoBundle 'fuenor/im_control.vim'
 NeoBundle 'itchyny/lightline.vim'
+NeoBundle 'junegunn/vim-easy-align'
+NeoBundle 'kana/vim-textobj-indent'
+NeoBundle 'kana/vim-textobj-user'
 NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'open-browser.vim'
@@ -210,3 +213,9 @@ let g:vimfiler_as_default_explorer = 1
 let g:grammarous#default_comments_only_filetypes = {
 	\ '*' : 1, 'help' : 0, 'markdown' : 0,
 	\ }
+
+" vim-easy-align
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
