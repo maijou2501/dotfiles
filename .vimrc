@@ -67,8 +67,9 @@ NeoBundle 'Shougo/vimproc', { 'build' : { 'linux' : 'make', }, }
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'nathanaelkane/vim-indent-guides'
-NeoBundle 'thinca/vim-ref'
 NeoBundle 'open-browser.vim'
+NeoBundle 'thinca/vim-ref'
+NeoBundle 'rhysd/vim-grammarous'
 " Git
 NeoBundle 'mattn/gist-vim', {'depends': 'mattn/webapi-vim'}
 NeoBundle 'mattn/webapi-vim'
@@ -281,3 +282,8 @@ vmap <Leader>c <Plug>(caw:i:toggle)
 
 " vimfiler.vim
 let g:vimfiler_as_default_explorer = 1
+
+" vim-grammarous
+let g:grammarous#default_comments_only_filetypes = {
+	\ '*' : 1, 'help' : 0, 'markdown' : 0,
+	\ }

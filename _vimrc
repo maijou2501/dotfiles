@@ -87,6 +87,7 @@ NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'open-browser.vim'
+NeoBundle 'rhysd/vim-grammarous'
 NeoBundle 'tpope/vim-surround'
 " Git
 NeoBundle 'mattn/gist-vim', {'depends': 'mattn/webapi-vim'}
@@ -204,3 +205,8 @@ vmap gx <Plug>(openbrowser-smart-search)
 
 " vimfiler
 let g:vimfiler_as_default_explorer = 1
+
+" vim-grammarous
+let g:grammarous#default_comments_only_filetypes = {
+	\ '*' : 1, 'help' : 0, 'markdown' : 0,
+	\ }
