@@ -12,6 +12,7 @@ se incsearch
 se list listchars=tab:>-,trail:~,extends:>,precedes:<,eol:$,nbsp:%
 se showmatch
 se spelllang=en,cjk
+se tags=tags;/,codex.tags;/
 se textwidth=78
 se ts=2 sw=2 sts=0
 se wildmenu wildmode=longest,list:full
@@ -21,6 +22,18 @@ nnoremap j gj
 nnoremap k gk
 nnoremap Y y$
 nnoremap <ESC><ESC> :nohlsearch<CR>
+
+" netrw-explore
+let g:netrw_use_errorwindow = 0
+let g:netrw_silent = 1
+let g:netrw_banner = 0
+let g:netrw_cursor = 3
+let g:netrw_browse_split = 4
+let g:netrw_altv    = 1
+let g:netrw_preview = 1
+let g:netrw_winsize = 85
+let g:netrw_liststyle = 3
+let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
 
 " Zenkaku Space highlight
 function! ZenkakuSpace()
