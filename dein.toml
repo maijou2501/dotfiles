@@ -87,7 +87,7 @@ repo = 'tpope/vim-fugitive'
 # on_cmd = [ 'Gstatus', 'Gwrite', 'Gblame', 'Gdiff' ]
 
 # english
-[[plugins]] # ctl+k,ctl+y or ctl+k,y
+[[plugins]] # ctl+k, ctl+y or ctl+k, y
 repo        = 'deton/eblook.vim'
 on_event    = 'BufRead'
 hook_source = '''
@@ -123,6 +123,13 @@ hook_source = '''
 			\ 'title' : 'ライフサイエンス辞書',
 		\ },
 	\]
+'''
+[[plugins]]
+repo     = 'rhysd/vim-grammarous'
+hook_add = '''
+let g:grammarous#default_comments_only_filetypes = {
+	\ '*' : 1, 'help' : 0, 'markdown' : 0,
+	\ }
 '''
 
 # programming
