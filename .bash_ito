@@ -1,7 +1,3 @@
-if [ $SHLVL = 1 ]; then
-	byobu
-fi
-
 # export
 if type nvim >/dev/null 2>&1; then
 	export EDITOR=nvim
@@ -10,6 +6,11 @@ fi
 export TERM=screen-256color
 export XDG_CACHE_HOME=~/.cache
 export XDG_CONFIG_HOME=~/.config
+export VTE_CJK_WIDTH=1
+
+if [ $SHLVL = 1 ]; then
+	byobu
+fi
 
 # alias
 alias beep='paplay /usr/share/sounds/ubuntu/stereo/system-ready.ogg'
