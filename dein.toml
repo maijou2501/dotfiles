@@ -2,7 +2,7 @@
 [[plugins]]
 repo = 'Shougo/dein.vim'
 [[plugins]]
-repo  = 'Shougo/vimproc.vim'
+repo  = 'Shougo/vimproc'
 build = 'make'
 
 # denite
