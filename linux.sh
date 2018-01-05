@@ -24,5 +24,6 @@ else
 	ln -s "$1"/init.vim "$XDG_CONFIG_HOME"/nvim/init.vim
 	ln -s "$1"/dein.toml "$XDG_CONFIG_HOME"/nvim/dein.toml
 	ln -s "$1"/dein_lazy.toml "$XDG_CONFIG_HOME"/nvim/dein_lazy.toml
+	ln -s "$1"/ftdetect "$XDG_CONFIG_HOME"/nvim/
 
 fi

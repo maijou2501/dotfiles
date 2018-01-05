@@ -25,8 +25,7 @@ hook_souce ='''
 		set conceallevel=2 concealcursor=i
 	endif
 	" Enable snipMate compatibility feature.
-	let g:neosnippet#enable_snipmate_compatibility = 1
-	" Tell Neosnippet about the other snippets
+	let g:neosnippet#enable_snipmate_compatibility = 1 " Tell Neosnippet about the other snippets
 	let g:neosnippet#snippets_directory='$XDG_CONFIG_HOME/nvim/repos/github.com/honza/vim-snippets/snippets'
 '''
 hook_add ='''
@@ -120,3 +119,17 @@ on_ft = 'python'
 [[plugins]]
 repo  = 'derekwyatt/vim-scala'
 on_ft = 'scala'
+
+# CofeeScript
+[[plugins]]
+repo  = 'kchmck/vim-coffee-script'
+on_ft = 'coffee'
+hook_add ='''
+	" tab->space*2
+	set expandtab    "タブ入力を複数の空白入力に置き換える
+	set tabstop=2    "画面上でタブ文字が占める幅
+	set shiftwidth=2 "自動インデントでずれる幅
+	set softtabstop=2"連続した空白に対してタブキーやバックスペースキーでカーソルが動く幅
+	set autoindent   "改行時に前の行のインデントを継続する
+	set smartindent  "改行時に入力された行の末尾に合わせて次の行のインデントを増減する
+'''
