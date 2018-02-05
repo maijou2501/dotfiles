@@ -19,6 +19,7 @@ else
 	ln -s "$1"/.inputrc ~/.inputrc
 	ln -s "$1"/.ctags   ~/.ctags
 	ln -s "$1"/.toprc   ~/.toprc
+	ln -s "$1"/.tmux.conf /.config/byobu/.tmux.conf
 	ln -s "$1"/githooks ~/.git_template/hooks
 	mkdir "$XDG_CONFIG_HOME"/nvim
 	ln -s "$1"/init.vim "$XDG_CONFIG_HOME"/nvim/init.vim

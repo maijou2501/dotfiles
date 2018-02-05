@@ -23,6 +23,10 @@ nnoremap k gk
 nnoremap Y y$
 nnoremap <ESC><ESC> :nohlsearch<CR>
 
+" python
+let g:python_host_prog=$PYENV_ROOT.'/versions/neovim-2/bin/python'
+let g:python3_host_prog=$PYENV_ROOT.'/versions/neovim-3/bin/python'
+
 " netrw-explore
 let g:netrw_use_errorwindow = 0
 let g:netrw_silent = 1
