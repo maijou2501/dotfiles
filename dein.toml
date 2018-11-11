@@ -76,6 +76,22 @@ hook_add ='''
 	vmap gx <Plug>(openbrowser-smart-search)
 '''
 
+[[plugins]]
+repo = 'junegunn/fzf'
+build = './install --bin'
+merged = '0'
+hook_add ='''
+	nmap ; :Buffers
+	nmap f :Files
+	nmap t :Tags
+```
+[[plugins]]
+repo = 'junegunn/fzf.vim'
+depends = 'fzf'
+[[plugins]]
+repo     = 'mileszs/ack.vim'
+on_event = 'BufRead'
+
 # completion
 [[plugins]]
 repo = 'Townk/vim-autoclose'
@@ -85,6 +101,9 @@ repo = 'Townk/vim-autoclose'
 [[plugins]]
 repo = 'tpope/vim-fugitive'
 # on_cmd = [ 'Gstatus', 'Gwrite', 'Gblame', 'Gdiff' ]
+[[plugins]]
+repo     = 'airblade/vim-gitgutter'
+on_event = 'BufRead'
 
 # english
 [[plugins]] # ctl+k, ctl+y or ctl+k, y

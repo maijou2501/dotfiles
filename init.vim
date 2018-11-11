@@ -8,6 +8,7 @@ se foldlevel=2
 se formatoptions+=mM
 se hlsearch
 se ignorecase
+se inccommand=split
 se incsearch
 se list listchars=tab:>-,trail:~,extends:>,precedes:<,eol:$,nbsp:%
 se showmatch
@@ -17,7 +18,6 @@ se textwidth=78
 se ts=2 sw=2 sts=0
 se wildmenu wildmode=longest,list:full
 colorscheme ron "koehler elflord zellner
-nnoremap bb :ls<CR>:buf 
 nnoremap j gj
 nnoremap k gk
 nnoremap Y y$
