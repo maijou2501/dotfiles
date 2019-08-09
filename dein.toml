@@ -84,7 +84,7 @@ hook_add ='''
 	nmap ; :Buffers
 	nmap f :Files
 	nmap t :Tags
-```
+'''
 [[plugins]]
 repo = 'junegunn/fzf.vim'
 depends = 'fzf'
@@ -110,7 +110,7 @@ on_event = 'BufRead'
 repo        = 'deton/eblook.vim'
 on_event    = 'BufRead'
 hook_source = '''
-	let g:eblook_dictlist1 = [
+let g:eblook_dictlist1 = [
 		\ {
 			\ 'book'  : '/home/ito/Dictionary/Readers\ Plus',
 			\ 'name'  : 'plus',
